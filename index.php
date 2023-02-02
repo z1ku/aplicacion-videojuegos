@@ -1,5 +1,6 @@
 <?php
-    require_once("vistas/header.php");
+    require_once("funciones/funciones.php");
+    session_start();
 ?>
 
 <!DOCTYPE html>

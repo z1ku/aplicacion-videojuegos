@@ -4,18 +4,16 @@
     class usuario{
         private $id;
         private $nombre;
-        private $nick;
-        private $pass;
         private $activo;
+        private $logotipo;
 
         public function __construct(){
             $this->id='';
             $this->nombre='';
-            $this->nick='';
-            $this->pass='';
-            $this->activo=false;
+            $this->activo='';
+            $this->logotipo='';
         }
-
+        
         public function __get($atributo){
             return $this->$atributo;
         }
@@ -24,11 +22,7 @@
             $this->$atributo=$valor;
         }
 
-        public function comprobar_usuario($nombre,$pass){
-            $con=conectar::conexion();
-
-            $con->close();
-        }
+        
 
 
     }

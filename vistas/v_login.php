@@ -1,5 +1,6 @@
 <?php
-    require_once("vistas/header.php");
+    require_once("../funciones/funciones.php");
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="assets/css/estilos.css">
+    <link rel="stylesheet" href="../assets/css/estilos.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
@@ -17,10 +18,30 @@
 </head>
 <body>
     <?php
-        headerIndexGuest();
+        headerGuest();
     ?>
     <main>
-        
+        <section>
+            <form action="../controladores/c_login.php" method="post">
+                <div>
+                    <label for="nick">Nick:</label>
+                    <input type="text" name="nick" value="" required>
+                </div>
+                <div>
+                    <label for="pass">Constraseña:</label>
+                    <input type="password" name="pass"required>
+                </div>
+                <input type="submit" name="logearse" value="Enviar">
+            </form>
+        </section>
+        <?php
+            if(isset($ok)){
+                echo $mensaje;
+                if($ok){
+                    header("refresh:2; url=../index.php");
+                }
+            }
+        ?>
     </main>
     <footer>
             <div>
