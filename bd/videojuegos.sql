@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-01-2023 a las 14:12:34
+-- Tiempo de generación: 03-02-2023 a las 12:52:33
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -50,6 +50,24 @@ CREATE TABLE `juegos` (
   `activo` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `juegos`
+--
+
+INSERT INTO `juegos` (`id`, `nombre`, `descripcion`, `plataforma`, `caratula`, `fecha_lanzamiento`, `activo`) VALUES
+(1, 'Counter-Strike', 'Shooter, Multijugador, Tactico', 1, 'counter.jpg', '2000-11-08', 1),
+(2, 'Hunt: Showdown', 'Shooter, Multijugador, Extraction', 1, 'hunt.jpg', '2018-02-22', 1),
+(3, 'Black Desert Online', 'MMORPG', 1, 'bdo.jpg', '2017-05-16', 1),
+(4, 'Devil May Cry', 'Hack and Slash', 1, 'dmc.jpg', '2001-03-16', 1),
+(5, 'Jack and Daxter', 'Plataformas, Aventura', 3, 'jad.jpg', '2004-08-12', 1),
+(6, 'Ratchet and Clank', 'Plataformas, Aventura', 3, 'rac.jpg', '2005-02-12', 1),
+(7, 'Need for Speed', 'Coches, Carreras', 3, 'nfs.jpg', '2015-07-04', 1),
+(8, 'Resident Evil 2 Remake', 'Zombies, Terror', 3, 're2.jpg', '2019-01-25', 1),
+(9, 'Halo: Reach', 'Shooter, Futurista', 2, 'halor.jpg', '2014-10-10', 1),
+(10, 'STAR WARS Jedi: Fallen Order', 'Futurista, Aventura, Espacio', 2, 'swj.jpg', '2018-04-05', 1),
+(11, 'Biomutant', 'Aventura, Accion, Mundo abierto', 2, 'biomutant.jpg', '2018-07-17', 1),
+(12, 'Silent Hill', 'Terror, Accion, Suspense', 2, 'sh.jpg', '2009-02-07', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -63,6 +81,15 @@ CREATE TABLE `plataformas` (
   `logotipo` varchar(100) COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `plataformas`
+--
+
+INSERT INTO `plataformas` (`id`, `nombre`, `activo`, `logotipo`) VALUES
+(1, 'PC', 1, 'pc_icon.jpg'),
+(2, 'XBOX', 1, 'xbox_icon.jpg'),
+(3, 'PS5', 1, 'ps4_icon.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -71,11 +98,20 @@ CREATE TABLE `plataformas` (
 
 CREATE TABLE `usuarios` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `nombre` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
+  `nombre` varchar(50) COLLATE latin1_spanish_ci DEFAULT NULL,
   `nick` varchar(20) COLLATE latin1_spanish_ci NOT NULL,
   `pass` varchar(20) COLLATE latin1_spanish_ci NOT NULL,
-  `activo` tinyint(1) NOT NULL
+  `activo` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `nombre`, `nick`, `pass`, `activo`) VALUES
+(0, NULL, 'admin', 'admin', NULL),
+(2, 'Richard', 'richar1', 'richar1', 1),
+(3, 'Jesus', 'jesus1', 'jesus1', 1);
 
 --
 -- Índices para tablas volcadas
@@ -116,19 +152,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `juegos`
 --
 ALTER TABLE `juegos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `plataformas`
 --
 ALTER TABLE `plataformas`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
