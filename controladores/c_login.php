@@ -2,6 +2,8 @@
     require_once("../modelos/m_usuarios.php");
 
     if(isset($_POST['logearse'])){
+        session_start();
+
         $nick=$_POST['nick'];
         $pass=$_POST['pass'];
 

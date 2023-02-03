@@ -1,6 +1,14 @@
 <?php
     require_once("funciones/funciones.php");
+    require_once("bd/bd.php");
+    require_once("modelos/m_juegos.php");
+    require_once("modelos/m_plataformas.php");
+
     session_start();
+
+    if(isset($_COOKIE['sesion'])){
+        session_decode($_COOKIE['sesion']);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -18,10 +26,55 @@
 </head>
 <body>
     <?php
-        headerIndexGuest();
+        if(isset($_SESSION['nick']) && isset($_SESSION['pass'])){
+            $nick=$_SESSION['nick'];
+            $pass=$_SESSION['pass'];
+    
+            $esAdmin=comprobar_admin($nick,$pass);
+            echo $esAdmin;
+            
+            if($esAdmin){
+                headerIndexAdmin();
+                echo "admin";
+            }else{
+                headerIndexUsu();
+                echo "usu";
+            }
+        }else{
+            headerIndexGuest();
+            echo "invitado";
+        }
     ?>
     <main>
-        
+        <section class="bienvenida">
+            <h1>Bienvenido a Gaming Hub</h1>
+        </section>
+        <section class="seccionUltimosLanzamientos">
+            <h2>Últimos lanzamientos</h2>
+            <?php
+                $plata=new plataforma();
+                $plataformas=$plata->total_plataformas();
+
+                $jue=new juego();
+
+                for($i=0;$i<count($plataformas);$i++){
+                    echo "<table border>
+                    <tr>
+                        <td colspan=\"4\">".$plataformas[$i]['nombre']."</td>
+                    </tr>";
+                    $juegos=$jue->juegos_por_plataforma($plataformas[$i]['id']);
+                    echo "<tr>";
+                    for($j=0;$j<count($juegos);$j++){
+                        echo "<td>".$juegos[$j]['nombre']."</td>";
+                    }
+                    echo "</tr>";
+                    echo "</table>";
+                }
+            ?>
+        </section>
+        <section class="seccionUltimosComentarios">
+            <h2>Últimos comentarios</h2>
+        </section>
     </main>
     <footer>
             <div>

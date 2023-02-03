@@ -34,9 +34,13 @@
             $preparada->store_result();
 
             if($preparada->num_rows>0){
-                session_start();
                 $_SESSION['nick']=$nick;
                 $_SESSION['pass']=$pass;
+
+                if(isset($_POST['recordar'])){
+                    $datos=session_encode();
+                    setcookie('sesion', $datos, time()+60*60*7, '/');
+                }
 
                 $res=true;
             }else{

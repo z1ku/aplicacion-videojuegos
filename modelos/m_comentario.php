@@ -1,7 +1,7 @@
 <?php
     require_once("..bd/bd.php");
 
-    class usuario{
+    class comentario{
         private $usuario;
         private $juego;
         private $fecha;
@@ -21,7 +21,7 @@
         public function __set($atributo,$valor){
             $this->$atributo=$valor;
         }
-
+        
         
 
 

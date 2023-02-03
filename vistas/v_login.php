@@ -1,6 +1,6 @@
 <?php
     require_once("../funciones/funciones.php");
-    session_start();
+    // session_start();
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +22,14 @@
     ?>
     <main>
         <section>
+            <?php
+                if(isset($ok)){
+                    echo $mensaje;
+                    if($ok){
+                        header("refresh:2; url=../index.php");
+                    }
+                }
+            ?>
             <form action="../controladores/c_login.php" method="post">
                 <div>
                     <label for="nick">Nick:</label>
@@ -31,17 +39,12 @@
                     <label for="pass">Constraseña:</label>
                     <input type="password" name="pass"required>
                 </div>
+                <label for="recordar">
+                    <input type="checkbox" name="recordar">Mantener sesión iniciada
+                </label>
                 <input type="submit" name="logearse" value="Enviar">
             </form>
         </section>
-        <?php
-            if(isset($ok)){
-                echo $mensaje;
-                if($ok){
-                    header("refresh:2; url=../index.php");
-                }
-            }
-        ?>
     </main>
     <footer>
             <div>

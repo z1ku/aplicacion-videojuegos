@@ -1,7 +1,7 @@
 <?php
-    require_once("..bd/bd.php");
+    // require_once("..bd/bd.php");
 
-    class usuario{
+    class plataforma{
         private $id;
         private $nombre;
         private $activo;
@@ -22,7 +22,20 @@
             $this->$atributo=$valor;
         }
 
-        
+        public function total_plataformas(){
+            $con=conectar::conexion();
+            $buscar=$con->query("select id,nombre from plataformas");
+
+            $i=0;
+            while($fila_buscar=$buscar->fetch_array(MYSQLI_ASSOC)){
+                $datos[$i]['id']=$fila_buscar['id'];
+                $datos[$i]['nombre']=$fila_buscar['nombre'];
+                $i++;
+            }
+
+            $con->close();
+            return $datos;
+        }
 
 
     }
