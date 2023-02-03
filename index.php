@@ -62,7 +62,7 @@
                     <tr>
                         <td colspan=\"4\">".$plataformas[$i]['nombre']."</td>
                     </tr>";
-                    $juegos=$jue->juegos_por_plataforma($plataformas[$i]['id']);
+                    $juegos=$jue->ultimos_juegos_por_plataforma($plataformas[$i]['id']);
                     echo "<tr>";
                     for($j=0;$j<count($juegos);$j++){
                         echo "<td>".$juegos[$j]['nombre']."</td>";
