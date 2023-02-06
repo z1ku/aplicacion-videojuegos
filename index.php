@@ -31,7 +31,6 @@
             $pass=$_SESSION['pass'];
     
             $esAdmin=comprobar_admin($nick,$pass);
-            echo $esAdmin;
             
             if($esAdmin){
                 headerIndexAdmin();
@@ -53,7 +52,7 @@
             <h2>Últimos lanzamientos</h2>
             <?php
                 $plata=new plataforma();
-                $plataformas=$plata->total_plataformas();
+                $plataformas=$plata->todas_plataformas();
 
                 $jue=new juego();
 

@@ -15,25 +15,21 @@
         $pass=$_SESSION['pass'];
 
         $esAdmin=comprobar_admin($nick,$pass);
-        echo $esAdmin;
         
         if($esAdmin){
             headerAdmin();
             $tipo_usu="admin";
-            echo "admin";
         }else{
             headerUsu();
             $tipo_usu="usuario";
-            echo "usu";
         }
     }else{
         headerGuest();
         $tipo_usu="invitado";
-        echo "invitado";
     }
 
     $plata=new plataforma();
-    $plataformas=$plata->total_plataformas();
+    $plataformas=$plata->todas_plataformas();
 
     $jue=new juego();
 

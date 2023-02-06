@@ -16,21 +16,17 @@
             $pass=$_SESSION['pass'];
 
             $esAdmin=comprobar_admin($nick,$pass);
-            echo $esAdmin;
             
             if($esAdmin){
                 headerAdmin();
                 $tipo_usu="admin";
-                echo "admin";
             }else{
                 headerUsu();
                 $tipo_usu="usuario";
-                echo "usu";
             }
         }else{
             headerGuest();
             $tipo_usu="invitado";
-            echo "invitado";
         }
 
         $id=$_POST['id_juego'];
@@ -42,5 +38,7 @@
         $plataforma=$plata->plataforma_por_id($juego['id']);
 
         include "../vistas/v_juego_ver.php";
+    }else{
+        header("Location:../index.php");
     }
 ?>

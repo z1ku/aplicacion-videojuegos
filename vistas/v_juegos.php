@@ -22,30 +22,44 @@
                             <input type="text" name="cadena">
                             <input type="submit" name="buscar_juego" value="Buscar">
                         </form>
-                        <form action="../controladores/c_nuevo_juego.php" method="post">
-                            <input type="submit" name="nuevo_juego" value="Nuevo juego">
+                        <form action="../controladores/c_juego_nuevo.php" method="post">
+                            <input type="submit" name="juego_nuevo" value="Nuevo juego">
                         </form>
                     </div>';
                 }
 
                 for($i=0;$i<count($plataformas);$i++){
+                    echo "<h2>".$plataformas[$i]['nombre']."</h2>";
                     echo "<table border>
                     <tr>
-                        <td colspan=\"4\">".$plataformas[$i]['nombre']."</td>
-                    </tr>";
-                    $juegos=$jue->juegos_por_plataforma($plataformas[$i]['id']);
-                    echo "<tr>";
-                    for($j=0;$j<count($juegos);$j++){
-                        echo "<td><img src=\"".$juegos[$j]['caratula']."\"></td>";
-                        echo "<td>".$juegos[$j]['nombre']."</td>";
-                        echo '<td>
-                            <form action="c_juego_ver.php" method="post">
-                                <input type="hidden" name="id_juego" value="'.$juegos[$j]['id'].'">
-                                <input type="submit" name="enviar" id="btn-login" value="Ver más">
-                            </form>
-                        </td>';
-                    }
+                        <td>Caratula</td>
+                        <td>Nombre</td>
+                        <td>Ver</td>";
+                        if($tipo_usu=="admin"){
+                            echo "<td>Editar</td>";
+                        }
                     echo "</tr>";
+                    $juegos=$jue->juegos_por_plataforma($plataformas[$i]['id']);
+                    for($j=0;$j<count($juegos);$j++){
+                        echo "<tr>
+                        <td><img src=\"".$juegos[$j]['caratula']."\"></td>
+                        <td>".$juegos[$j]['nombre']."</td>";
+                        echo '<td>
+                                <form action="c_juego_ver.php" method="post">
+                                    <input type="hidden" name="id_juego" value="'.$juegos[$j]['id'].'">
+                                    <input type="submit" name="enviar" id="btn-login" value="Ver más">
+                                </form>
+                            </td>';
+                            if($tipo_usu=="admin"){
+                                echo '<td>
+                                    <form action="c_juego_editar.php" method="post">
+                                        <input type="hidden" name="id_juego" value="'.$juegos[$j]['id'].'">
+                                        <input type="submit" name="enviar" id="btn-login" value="Editar">
+                                    </form>
+                                </td>';
+                            }
+                        echo '</tr>';
+                    }
                     echo "</table>";
                 }
             ?>

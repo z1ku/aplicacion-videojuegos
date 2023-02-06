@@ -22,31 +22,51 @@
                             <input type="text" name="cadena">
                             <input type="submit" name="buscar_juego" value="Buscar">
                         </form>
-                        <form action="../controladores/c_nuevo_juego.php" method="post">
-                            <input type="submit" name="nuevo_juego" value="Nuevo juego">
+                        <form action="../controladores/c_juego_nuevo.php" method="post">
+                            <input type="submit" name="juego_nuevo" value="Nuevo juego">
                         </form>
                     </div>';
                 }
 
-                for($i=0;$i<count($plataformas);$i++){
+                if($juegos!=null){
+                    echo "<h2>Juegos encontrados</h2>";
                     echo "<table border>
                     <tr>
-                        <td colspan=\"4\">".$plataformas[$i]['nombre']."</td>
-                    </tr>";
-                    $juegos=$jue->buscar_juego_por_nombre($plataformas[$i]['id'],$cadena);
-                    echo "<tr>";
-                    for($j=0;$j<count($juegos);$j++){
-                        echo "<td><img src=\"".$juegos[$j]['caratula']."\"></td>";
-                        echo "<td>".$juegos[$j]['nombre']."</td>";
+                        <td>Plataforma</td>
+                        <td>Caratula</td>
+                        <td>Nombre</td>
+                        <td>Ver</td>";
+                        if($tipo_usu=="admin"){
+                            echo "<td>Editar</td>";
+                        }
+                    echo "</tr>";
+                    for($i=0;$i<count($juegos);$i++){
+                        $plataforma=$plata->plataforma_por_id($juegos[$i]['plataforma']);
+                        echo "<tr>
+                        <td>".$plataforma['nombre']."</td>
+                        <td>
+                            <img src=\"".$juegos[$i]['caratula']."\">
+                        </td>
+                        <td>".$juegos[$i]['nombre']."</td>";
                         echo '<td>
                             <form action="c_juego_ver.php" method="post">
-                                <input type="hidden" name="id_juego" value="'.$juegos[$j]['id'].'">
+                                <input type="hidden" name="id_juego" value="'.$juegos[$i]['id'].'">
                                 <input type="submit" name="enviar" id="btn-login" value="Ver más">
                             </form>
                         </td>';
+                        if($tipo_usu=="admin"){
+                            echo '<td>
+                                <form action="c_juego_editar.php" method="post">
+                                    <input type="hidden" name="id_juego" value="'.$juegos[$i]['id'].'">
+                                    <input type="submit" name="enviar" id="btn-login" value="Editar">
+                                </form>
+                            </td>';
+                        }
+                        echo "</tr>";
                     }
-                    echo "</tr>";
                     echo "</table>";
+                }else{
+                    echo "<p>No se han encontrado coincidencias</p>";
                 }
             ?>
         </section>

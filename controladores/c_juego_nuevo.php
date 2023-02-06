@@ -1,5 +1,5 @@
-<?php
-    if(isset($_POST['buscar_juego'])){
+<?php  
+    if(isset($_POST['juego_nuevo'])){
         require_once("../funciones/funciones.php");
         require_once("../bd/bd.php");
         require_once("../modelos/m_juegos.php");
@@ -29,16 +29,14 @@
             $tipo_usu="invitado";
         }
 
-        $cadena=$_POST['cadena'];
-
         $plata=new plataforma();
-        $jue=new juego();
 
-        $juegos=$jue->buscar_juegos_por_nombre($cadena);
+        $plataformas=$plata->todas_plataformas();
 
-        include "../vistas/v_buscar_juego.php";
+        include "../vistas/v_juego_nuevo.php";
+        
     }else{
         header("Location:../index.php");
     }
-    
+
 ?>

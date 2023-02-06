@@ -1,5 +1,5 @@
-<?php
-    if(isset($_POST['buscar_juego'])){
+<?php  
+    if(isset($_POST['insertar_juego'])){
         require_once("../funciones/funciones.php");
         require_once("../bd/bd.php");
         require_once("../modelos/m_juegos.php");
@@ -29,16 +29,19 @@
             $tipo_usu="invitado";
         }
 
-        $cadena=$_POST['cadena'];
+        $ok=false;
+        //COMPROBACIONES
+        if($_POST['nombre']!="" && strlen($_POST['nombre'])<=50){
+            
+        }
 
-        $plata=new plataforma();
         $jue=new juego();
+        $jue->insertar_juego();
 
-        $juegos=$jue->buscar_juegos_por_nombre($cadena);
-
-        include "../vistas/v_buscar_juego.php";
+        include "../vistas/v_juego_nuevo.php";
+        
     }else{
         header("Location:../index.php");
     }
-    
+
 ?>

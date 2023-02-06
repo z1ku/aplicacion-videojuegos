@@ -1,5 +1,4 @@
 <?php
-    require_once("../bd/bd.php");
 
     class usuario{
         private $id;

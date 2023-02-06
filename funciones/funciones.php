@@ -42,7 +42,7 @@
                 <a href="#"><i class="fa-brands fa-discord"></i></a>
             </div>
             <div class="login">
-                <form action="vistas/v_login.php" method="post">
+                <form action="controladores/c_login.php" method="post">
                     <input type="submit" name="enviar" id="btn-login" value="Login">
                 </form>
             </div>
@@ -119,7 +119,7 @@
                 <a href="#"><i class="fa-brands fa-discord"></i></a>
             </div>
             <div class="login">
-                <form action="../vistas/v_login.php" method="post">
+                <form action="../controladores/c_login.php" method="post">
                     <input type="submit" name="enviar" id="btn-login" value="Login">
                 </form>
             </div>

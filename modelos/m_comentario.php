@@ -1,5 +1,4 @@
 <?php
-    require_once("..bd/bd.php");
 
     class comentario{
         private $usuario;
