@@ -1,0 +1,46 @@
+<?php
+    if(isset($_POST['enviar'])){
+        require_once("../funciones/funciones.php");
+        require_once("../bd/bd.php");
+        require_once("../modelos/m_juegos.php");
+        require_once("../modelos/m_plataformas.php");
+
+        session_start();
+
+        if(isset($_COOKIE['sesion'])){
+            session_decode($_COOKIE['sesion']);
+        }
+
+        if(isset($_SESSION['nick']) && isset($_SESSION['pass'])){
+            $nick=$_SESSION['nick'];
+            $pass=$_SESSION['pass'];
+
+            $esAdmin=comprobar_admin($nick,$pass);
+            echo $esAdmin;
+            
+            if($esAdmin){
+                headerAdmin();
+                $tipo_usu="admin";
+                echo "admin";
+            }else{
+                headerUsu();
+                $tipo_usu="usuario";
+                echo "usu";
+            }
+        }else{
+            headerGuest();
+            $tipo_usu="invitado";
+            echo "invitado";
+        }
+
+        $id=$_POST['id_juego'];
+
+        $jue=new juego();
+        $juego=$jue->juego_por_id($id);
+
+        $plata=new plataforma();
+        $plataforma=$plata->plataforma_por_id($juego['id']);
+
+        include "../vistas/v_juego_ver.php";
+    }
+?>

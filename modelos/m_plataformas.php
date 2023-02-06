@@ -37,6 +37,20 @@
             return $datos;
         }
 
+        public function plataforma_por_id($id){
+            $con=conectar::conexion();
+            $buscar=$con->query("select * from plataformas where id=$id");
+
+            $fila=$buscar->fetch_array(MYSQLI_ASSOC);
+            $datos['id']=$fila['id'];
+            $datos['nombre']=$fila['nombre'];
+            $datos['logotipo']=$fila['logotipo'];
+            $datos['activo']=$fila['activo'];
+
+            $con->close();
+            return $datos;
+        }
+
 
     }
 

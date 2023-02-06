@@ -68,7 +68,37 @@
             return $datos;
         }
         
+        public function juego_por_id($id){
+            $con=conectar::conexion();
+            $buscar=$con->query("select * from juegos where id=$id and activo=1");
 
+            $fila=$buscar->fetch_array(MYSQLI_ASSOC);
+            $datos['id']=$fila['id'];
+            $datos['nombre']=$fila['nombre'];
+            $datos['descripcion']=$fila['descripcion'];
+            $datos['plataforma']=$fila['plataforma'];
+            $datos['caratula']=$fila['caratula'];
+            $datos['fecha_lanzamiento']=$fila['fecha_lanzamiento'];
+            $datos['activo']=$fila['activo'];
+
+            $con->close();
+            return $datos;
+        }
+
+        public function buscar_juego_por_nombre($id_plata,$cadena){
+            $param="%$cadena%";
+
+            $con=conectar::conexion();
+            $buscar=$con->prepare("select * from juegos where plataforma=? and nombre like ? and activo=1");
+            $buscar->bind_param("is",$id_plata,$param);
+            $buscar->bind_result($id,$nombre,$descripcion,$plataforma,$caratula,$fecha_lanzamiento,$activo);
+            $buscar->execute();
+            $buscar->store_result();
+
+            $buscar-close();
+            $con->close();
+            return $datos;
+        }
 
 
     }
