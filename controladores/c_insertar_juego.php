@@ -31,12 +31,39 @@
 
         $ok=false;
         //COMPROBACIONES
-        if($_POST['nombre']!="" && strlen($_POST['nombre'])<=50){
-            
-        }
+        if($_FILES['foto']['type']!="image/jpeg" && is_uploaded_file($_FILES['foto']['tmp_name'])){
+            $mensaje="<p>La foto no es un jpeg</p>";
+            header("refresh:2; url=../controladores/c_juego_nuevo.php");
+        }else if($_POST['nombre']=="" || $_POST['desc']=="" || $_POST['fecha_lanz']==""){
+            $mensaje="<p>Rellena todos los campos</p>";
+            header("refresh:2; url=../controladores/c_juego_nuevo.php");
+        }else if(strlen($_POST['nombre'])>50){
+            $mensaje="<p>Nombre no puede ser mayor de 50 caracteres</p>";
+            header("refresh:2; url=../controladores/c_juego_nuevo.php");
+        }else if(strlen($_POST['desc'])>50){
+            $mensaje="<p>Descripción no puede ser mayor de 50 caracteres</p>";
+            header("refresh:2; url=../controladores/c_juego_nuevo.php");
+        }else if(!is_uploaded_file($_FILES['foto']['tmp_name'])){
+            $mensaje="<p>Debes subir una foto jpeg</p>";
+            header("refresh:2; url=../controladores/c_juego_nuevo.php");
+        }else{
+            $ok=true;
 
-        $jue=new juego();
-        $jue->insertar_juego();
+            $jue=new juego();
+            $id=$jue->siguiente_id();
+
+            $nombre=$_POST['nombre'];
+            $desc=$_POST['desc'];
+            $plata=$_POST['plata'];
+            $foto=$id.".jpg";
+            $fecha=$_POST['fecha_lanz'];
+            $activado=$_POST['activar'];
+
+            $jue->insertar_juego($nombre,$desc,$plata,$foto,$fecha,$activado);
+            move_uploaded_file($_FILES['foto']['tmp_name'], "../assets/img/juegos/$foto");
+
+            $mensaje="<p>Juego insertado correctamente</p>";
+        }
 
         include "../vistas/v_juego_nuevo.php";
         

@@ -1,4 +1,4 @@
-<?php
+<?php  
     if(isset($_POST['enviar'])){
         require_once("../funciones/funciones.php");
         require_once("../bd/bd.php");
@@ -32,12 +32,12 @@
         $id=$_POST['id_juego'];
 
         $jue=new juego();
-        $juego=$jue->juego_por_id($id);
+        $datos=$jue->juego_por_id($id);
 
         $plata=new plataforma();
-        $plataforma=$plata->plataforma_por_id($juego['plataforma']);
+        $plataformas=$plata->todas_plataformas();
 
-        include "../vistas/v_juego_ver.php";
+        include "../vistas/v_juego_editar.php";
     }else{
         header("Location:../index.php");
     }

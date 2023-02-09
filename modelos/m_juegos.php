@@ -29,7 +29,7 @@
 
         public function ultimos_juegos_por_plataforma($id){
             $con=conectar::conexion();
-            $buscar=$con->query("select * from juegos where plataforma=$id and activo=1 order by fecha_lanzamiento desc limit 0, 4");
+            $buscar=$con->query("select * from juegos where plataforma=$id order by fecha_lanzamiento desc limit 0, 4");
 
             if($buscar->num_rows>0){
                 $i=0;
@@ -53,7 +53,7 @@
 
         public function juegos_por_plataforma($id){
             $con=conectar::conexion();
-            $buscar=$con->query("select * from juegos where plataforma=$id and activo=1");
+            $buscar=$con->query("select * from juegos where plataforma=$id");
 
             if($buscar->num_rows>0){
                 $i=0;
@@ -77,7 +77,7 @@
         
         public function juego_por_id($id){
             $con=conectar::conexion();
-            $buscar=$con->query("select * from juegos where id=$id and activo=1");
+            $buscar=$con->query("select * from juegos where id=$id");
 
             if($buscar->num_rows>0){
                 $fila=$buscar->fetch_array(MYSQLI_ASSOC);
@@ -130,13 +130,26 @@
         public function insertar_juego($nombre,$descripcion,$plataforma,$caratula,$fecha_lanzamiento,$activo){
             $con=conectar::conexion();
 
-            $insertar=$con->prepare("insert into juegos values(null,?,?,?,?,?,?");
+            $insertar=$con->prepare("insert into juegos values(null,?,?,?,?,?,?)");
             $insertar->bind_param("ssissi",$nombre,$descripcion,$plataforma,$caratula,$fecha_lanzamiento,$activo);
             $insertar->execute();
 
             $insertar->close();
             $con->close();
         }
+
+        public function siguiente_id(){
+            $con=conectar::conexion();
+
+            $sentencia="select auto_increment from information_schema.tables where table_schema='videojuegos' and table_name='juegos'";
+            $resultado=$con->query($sentencia);
+
+            $fila=$resultado->fetch_array(MYSQLI_NUM);
+            $id=$fila[0];
+
+            return $id;
+        }
+
 
 
     }

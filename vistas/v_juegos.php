@@ -42,7 +42,7 @@
                     $juegos=$jue->juegos_por_plataforma($plataformas[$i]['id']);
                     for($j=0;$j<count($juegos);$j++){
                         echo "<tr>
-                        <td><img src=\"".$juegos[$j]['caratula']."\"></td>
+                        <td><img src=\"../assets/img/juegos/".$juegos[$j]['caratula']."\"></td>
                         <td>".$juegos[$j]['nombre']."</td>";
                         echo '<td>
                                 <form action="c_juego_ver.php" method="post">

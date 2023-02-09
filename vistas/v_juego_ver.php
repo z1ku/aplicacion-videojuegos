@@ -16,7 +16,7 @@
         <section class="seccionJuegos">
             <?php
                 echo "<h1>".$juego['nombre']."</h1>
-                <img src=\"".$juego['caratula']."\">
+                <img src=\"../assets/img/juegos/".$juego['caratula']."\">
                 <p>".$juego['descripcion']."</p>
                 <p>".$plataforma['nombre']."</p>
                 <p>".$juego['fecha_lanzamiento']."</p>";

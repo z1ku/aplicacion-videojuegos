@@ -15,10 +15,19 @@
     <main>
         <section class="seccionJuegos">
             <h1>Insertar nuevo juego</h1>
-            <form action="../controlador/c_insertar_juego.php" method="post" enctype="multipart/form-data">
+            <?php
+                if(isset($ok)){
+                    echo $mensaje;
+                    if($ok){
+                        header("refresh:2; url=../controladores/c_juegos.php");
+                    }
+                }
+            ?>
+            <form action="../controladores/c_insertar_juego.php" method="post" enctype="multipart/form-data">
                 <div>
                     <label for="nombre">Nombre:</label>
-                    <input type="text" name="nombre" maxlength=50 required>
+                    <!-- AÑADIR EL REQUIRED -->
+                    <input type="text" name="nombre" maxlength=50 >
                 </div>
                 <div>
                     <label for="desc">Descripción:</label>
@@ -39,14 +48,14 @@
                     <input type="date" name="fecha_lanz" required>
                 </div>
                 <div>
-                    <label for="caratula">Caratula:</label>
-                    <input type="file" name="caratula" accept="image/jpeg" required>
+                    <label for="foto">Caratula:</label>
+                    <input type="file" name="foto" accept="image/jpeg" required>
                 </div>
                 <div>
                     <input type="radio" name="activar" value="1" checked>
-                    <label for="activado">Activar</label>
+                    <label for="activado">Activado</label>
                     <input type="radio" name="activar" value="0">
-                    <label for="desactivado">Desactivar</label>
+                    <label for="desactivado">Desactivado</label>
                 </div>
                 <input type="submit" name="insertar_juego" value="Guardar">
             </form>
