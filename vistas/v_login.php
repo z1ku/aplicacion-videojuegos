@@ -14,6 +14,7 @@
 <body>
     <main>
         <section>
+            <h1>Acceder</h1>
             <?php
                 if(isset($ok)){
                     echo $mensaje;
