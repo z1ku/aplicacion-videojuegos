@@ -138,6 +138,17 @@
             $con->close();
         }
 
+        public function modificar_juego($nombre,$descripcion,$plataforma,$caratula,$fecha_lanzamiento,$activo,$id){
+            $con=conectar::conexion();
+
+            $insertar=$con->prepare("update juegos set nombre=?, descripcion=?, plataforma=?, caratula=?, fecha_lanzamiento=?, activo=? where id=?");
+            $insertar->bind_param("ssissii",$nombre,$descripcion,$plataforma,$caratula,$fecha_lanzamiento,$activo,$id);
+            $insertar->execute();
+
+            $insertar->close();
+            $con->close();
+        }
+
         public function siguiente_id(){
             $con=conectar::conexion();
 
@@ -149,8 +160,6 @@
 
             return $id;
         }
-
-
 
     }
 

@@ -45,7 +45,7 @@
                         echo "<tr>
                         <td>".$plataforma['nombre']."</td>
                         <td>
-                            <img src=\"".$juegos[$i]['caratula']."\">
+                            <img src=\"../assets/img/juegos/".$juegos[$i]['caratula']."\">
                         </td>
                         <td>".$juegos[$i]['nombre']."</td>";
                         echo '<td>
