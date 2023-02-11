@@ -49,7 +49,7 @@
                 </div>
                 <div>
                     <label for="foto">Caratula:</label>
-                    <input type="file" name="foto" accept="image/jpeg" required>
+                    <input type="file" name="foto" required>
                 </div>
                 <div>
                     <input type="radio" name="activar" value="1" checked>

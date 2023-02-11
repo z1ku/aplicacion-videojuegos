@@ -31,21 +31,16 @@
 
         $ok=false;
         //COMPROBACIONES
-        if($_FILES['foto']['type']!="image/jpeg" && is_uploaded_file($_FILES['foto']['tmp_name'])){
-            $mensaje="<p>La foto no es un jpeg</p>";
-            header("refresh:2; url=../controladores/c_juego_nuevo.php");
+        if($_FILES['foto']['type']!="image/jpeg" && $_FILES['foto']['type']!="image/webp" &&  is_uploaded_file($_FILES['foto']['tmp_name'])){
+            $mensaje="<p>La foto debe ser jpg o webp</p>";
         }else if($_POST['nombre']=="" || $_POST['desc']=="" || $_POST['fecha_lanz']==""){
             $mensaje="<p>Rellena todos los campos</p>";
-            header("refresh:2; url=../controladores/c_juego_nuevo.php");
         }else if(strlen($_POST['nombre'])>50){
             $mensaje="<p>Nombre no puede ser mayor de 50 caracteres</p>";
-            header("refresh:2; url=../controladores/c_juego_nuevo.php");
         }else if(strlen($_POST['desc'])>50){
             $mensaje="<p>Descripción no puede ser mayor de 50 caracteres</p>";
-            header("refresh:2; url=../controladores/c_juego_nuevo.php");
         }else if(!is_uploaded_file($_FILES['foto']['tmp_name'])){
             $mensaje="<p>Debes subir una foto jpeg</p>";
-            header("refresh:2; url=../controladores/c_juego_nuevo.php");
         }else{
             $ok=true;
 
@@ -64,6 +59,9 @@
 
             $mensaje="<p>Juego insertado correctamente</p>";
         }
+
+        $plata=new plataforma();
+        $plataformas=$plata->todas_plataformas();
 
         include "../vistas/v_juego_nuevo.php";
         

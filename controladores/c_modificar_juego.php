@@ -36,30 +36,34 @@
         
         $ok=false;
         //COMPROBACIONES
-        if($_FILES['foto']['type']!="image/jpeg" && is_uploaded_file($_FILES['foto']['tmp_name'])){
-            $mensaje="<p>La foto no es un jpeg</p>";
-            // header("refresh:2; url=../controladores/c_juegos.php");
+        if($_FILES['foto']['type']!="image/jpeg" && $_FILES['foto']['type']!="image/webp" && is_uploaded_file($_FILES['foto']['tmp_name'])){
+            $mensaje="<p>La foto debe ser jpg o webp</p>";
         }else if($_POST['nombre']=="" || $_POST['desc']=="" || $_POST['fecha_lanz']==""){
             $mensaje="<p>Rellena todos los campos</p>";
-            header("refresh:2; url=../controladores/c_juegos.php");
         }else if(strlen($_POST['nombre'])>50){
             $mensaje="<p>Nombre no puede ser mayor de 50 caracteres</p>";
-            header("refresh:2; url=../controladores/c_juegos.php");
         }else if(strlen($_POST['desc'])>50){
             $mensaje="<p>Descripción no puede ser mayor de 50 caracteres</p>";
-            header("refresh:2; url=../controladores/c_juegos.php");
         }else{
             $ok=true;
 
             $nombre=$_POST['nombre'];
             $desc=$_POST['desc'];
             $plata=$_POST['plata'];
-            $foto=$id.".jpg";
+
+            if($_FILES['foto']['type']=="image/jpeg"){
+                $foto=$id.".jpg";
+            }else if($_FILES['foto']['type']=="image/webp"){
+                $foto=$id.".webp";
+            }
+
             $fecha=$_POST['fecha_lanz'];
             $activado=$_POST['activar'];
+            $foto_anterior=$_POST['foto_anterior'];
 
             $jue->modificar_juego($nombre,$desc,$plata,$foto,$fecha,$activado,$id);
             if(is_uploaded_file($_FILES['foto']['tmp_name'])){
+                unlink("../assets/img/juegos/$foto_anterior");
                 move_uploaded_file($_FILES['foto']['tmp_name'], "../assets/img/juegos/$foto");
             }
 

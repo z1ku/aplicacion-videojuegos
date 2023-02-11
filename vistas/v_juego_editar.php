@@ -25,6 +25,7 @@
 
                 echo '<form action="../controladores/c_modificar_juego.php" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="id_juego" value="'.$datos['id'].'">
+                    <input type="hidden" name="foto_anterior" value="'.$datos['caratula'].'">
                     <div>
                         <label for="nombre">Nombre:</label>
                         <input type="text" name="nombre" maxlength=50 value="'.$datos['nombre'].'" required>
@@ -51,7 +52,7 @@
                     </div>
                     <div>
                         <label for="foto">Caratula:</label>
-                        <input type="file" name="foto" accept="image/jpeg">
+                        <input type="file" name="foto">
                     </div>
                     <div>';
                         if($datos['activo']==1){
