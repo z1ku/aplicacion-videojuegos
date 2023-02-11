@@ -50,20 +50,23 @@
             $nombre=$_POST['nombre'];
             $desc=$_POST['desc'];
             $plata=$_POST['plata'];
+            $fecha=$_POST['fecha_lanz'];
+            $activado=$_POST['activar'];
+            $foto_anterior=$_POST['foto_anterior'];
 
             if($_FILES['foto']['type']=="image/jpeg"){
                 $foto=$id.".jpg";
             }else if($_FILES['foto']['type']=="image/webp"){
                 $foto=$id.".webp";
+            }else{
+                $foto=$foto_anterior;
             }
-
-            $fecha=$_POST['fecha_lanz'];
-            $activado=$_POST['activar'];
-            $foto_anterior=$_POST['foto_anterior'];
 
             $jue->modificar_juego($nombre,$desc,$plata,$foto,$fecha,$activado,$id);
             if(is_uploaded_file($_FILES['foto']['tmp_name'])){
-                unlink("../assets/img/juegos/$foto_anterior");
+                if(file_exists("../assets/img/juegos/$foto_anterior")){
+                    unlink("../assets/img/juegos/$foto_anterior");
+                }
                 move_uploaded_file($_FILES['foto']['tmp_name'], "../assets/img/juegos/$foto");
             }
 
