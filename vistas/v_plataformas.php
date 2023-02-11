@@ -31,7 +31,7 @@
                 echo "<div>";
                 for($i=0;$i<count($plataformas);$i++){
                     echo "<div>";
-                    echo '<a href="../controladores/c_ver_plataforma.php?plata_id='.$plataformas[$i]['id'].'"><img src="'.$plataformas[$i]['logotipo'].'"></a>';
+                    echo '<a href="../controladores/c_ver_plataforma.php?plata_id='.$plataformas[$i]['id'].'"><img src="../assets/img/plataformas/'.$plataformas[$i]['logotipo'].'"></a>';
                     if($tipo_usu=="admin"){
                         echo '<form action="c_plataforma_editar.php" method="post">
                             <input type="hidden" name="id_plata" value="'.$plataformas[$i]['id'].'">

@@ -34,14 +34,11 @@
             
             if($esAdmin){
                 headerIndexAdmin();
-                echo "admin";
             }else{
                 headerIndexUsu();
-                echo "usu";
             }
         }else{
             headerIndexGuest();
-            echo "invitado";
         }
     ?>
     <main>
@@ -57,17 +54,19 @@
                 $jue=new juego();
 
                 for($i=0;$i<count($plataformas);$i++){
-                    echo "<table border>
-                    <tr>
-                        <td colspan=\"4\">".$plataformas[$i]['nombre']."</td>
-                    </tr>";
                     $juegos=$jue->ultimos_juegos_por_plataforma($plataformas[$i]['id']);
-                    echo "<tr>";
-                    for($j=0;$j<count($juegos);$j++){
-                        echo "<td>".$juegos[$j]['nombre']."</td>";
+                    if($juegos!=null){
+                        echo "<table border>
+                        <tr>
+                            <td colspan=\"4\">".$plataformas[$i]['nombre']."</td>
+                        </tr>";
+                        echo "<tr>";
+                        for($j=0;$j<count($juegos);$j++){
+                            echo "<td>".$juegos[$j]['nombre']."</td>";
+                        }
+                        echo "</tr>";
+                        echo "</table>";
                     }
-                    echo "</tr>";
-                    echo "</table>";
                 }
             ?>
         </section>

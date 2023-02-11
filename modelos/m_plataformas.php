@@ -88,6 +88,39 @@
             return $datos;
         }
 
+        public function insertar_plataforma($nombre,$logotipo){
+            $con=conectar::conexion();
+
+            $insertar=$con->prepare("insert into plataformas values(null,?,1,?)");
+            $insertar->bind_param("ss",$nombre,$logotipo);
+            $insertar->execute();
+
+            $insertar->close();
+            $con->close();
+        }
+
+        public function modificar_juego($nombre,$logotipo,$id){
+            $con=conectar::conexion();
+
+            $insertar=$con->prepare("update plataformas set nombre=?, logotipo=? where id=?");
+            $insertar->bind_param("ssi",$nombre,$logotipo,$id);
+            $insertar->execute();
+
+            $insertar->close();
+            $con->close();
+        }
+
+        public function siguiente_id(){
+            $con=conectar::conexion();
+
+            $sentencia="select auto_increment from information_schema.tables where table_schema='videojuegos' and table_name='plataformas'";
+            $resultado=$con->query($sentencia);
+
+            $fila=$resultado->fetch_array(MYSQLI_NUM);
+            $id=$fila[0];
+
+            return $id;
+        }
 
     }
 

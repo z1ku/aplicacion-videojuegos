@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juegos por plataforma</title>
+    <title>Plataformas</title>
     <link rel="stylesheet" href="../assets/css/estilos.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,28 +13,28 @@
 </head>
 <body>
     <main>
-        <section class="seccionPlataformas">
+        <section class="seccionJuegos">
+            <h1>Insertar nueva plataforma</h1>
             <?php
-                echo "<h1>Juegos de ".$plataforma['nombre']."</h1>";
-                if($juegos!=null){
-                    echo "<table border>
-                    <tr>
-                        <td>Caratula</td>
-                        <td>Nombre</td>
-                        <td>Fecha lanzamiento</td>";
-                    echo "</tr>";
-                    for($i=0;$i<count($juegos);$i++){
-                        echo "<tr>
-                        <td><img src=\"../assets/img/juegos/".$juegos[$i]['caratula']."\"></td>
-                        <td>".$juegos[$i]['nombre']."</td>
-                        <td>".$juegos[$i]['fecha_lanzamiento']."</td>";
-                        echo '</tr>';
+                if(isset($ok)){
+                    echo $mensaje;
+                    if($ok){
+                        header("refresh:2; url=../controladores/c_plataformas.php");
                     }
-                    echo "</table>";
-                }else{
-                    echo "<p>No hay juegos de esa plataforma aún</p>";
                 }
             ?>
+            <form action="../controladores/c_insertar_plataforma.php" method="post" enctype="multipart/form-data">
+                <div>
+                    <label for="nombre">Nombre:</label>
+                    <!-- AÑADIR EL REQUIRED -->
+                    <input type="text" name="nombre" maxlength=50 >
+                </div>
+                <div>
+                    <label for="foto">Logotipo:</label>
+                    <input type="file" name="foto" accept="image/png" required>
+                </div>
+                <input type="submit" name="insertar_plataforma" value="Guardar">
+            </form>
         </section>
     </main>
     <footer>
