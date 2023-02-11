@@ -60,6 +60,34 @@
             return $datos;
         }
 
+        public function buscar_plataformas_por_nombre($cadena){
+            $param="%$cadena%";
+
+            $con=conectar::conexion();
+            $buscar=$con->prepare("select distinct * from plataformas where nombre like ?");
+            $buscar->bind_param("s",$param);
+            $buscar->bind_result($id,$nombre,$activo,$logotipo);
+            $buscar->execute();
+            $buscar->store_result();
+
+            if($buscar->num_rows>0){
+                $i=0;
+                while($buscar->fetch()){
+                    $datos[$i]['id']=$id;
+                    $datos[$i]['nombre']=$nombre;
+                    $datos[$i]['activo']=$activo;
+                    $datos[$i]['logotipo']=$logotipo;
+                    $i++;
+                }
+            }else{
+                $datos=null;
+            }
+
+            $buscar->close();
+            $con->close();
+            return $datos;
+        }
+
 
     }
 
