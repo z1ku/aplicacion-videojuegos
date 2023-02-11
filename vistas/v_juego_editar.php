@@ -23,7 +23,6 @@
                     }
                 }
 
-                
                 echo '<form action="../controladores/c_modificar_juego.php" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="id_juego" value="'.$datos['id'].'">
                     <div>
