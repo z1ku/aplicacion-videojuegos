@@ -23,13 +23,15 @@
 
         public function todas_plataformas(){
             $con=conectar::conexion();
-            $buscar=$con->query("select id,nombre from plataformas");
+            $buscar=$con->query("select * from plataformas");
 
             if($buscar->num_rows>0){
                 $i=0;
                 while($fila_buscar=$buscar->fetch_array(MYSQLI_ASSOC)){
                     $datos[$i]['id']=$fila_buscar['id'];
                     $datos[$i]['nombre']=$fila_buscar['nombre'];
+                    $datos[$i]['logotipo']=$fila_buscar['logotipo'];
+                    $datos[$i]['activo']=$fila_buscar['activo'];
                     $i++;
                 }
             }else{
