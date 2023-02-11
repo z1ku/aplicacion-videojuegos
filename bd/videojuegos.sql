@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-02-2023 a las 12:52:33
+-- Tiempo de generación: 11-02-2023 a las 22:03:33
 -- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 7.4.29
+-- Versión de PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -55,18 +55,19 @@ CREATE TABLE `juegos` (
 --
 
 INSERT INTO `juegos` (`id`, `nombre`, `descripcion`, `plataforma`, `caratula`, `fecha_lanzamiento`, `activo`) VALUES
-(1, 'Counter-Strike', 'Shooter, Multijugador, Tactico', 1, 'counter.jpg', '2000-11-08', 1),
-(2, 'Hunt: Showdown', 'Shooter, Multijugador, Extraction', 1, 'hunt.jpg', '2018-02-22', 1),
-(3, 'Black Desert Online', 'MMORPG', 1, 'bdo.jpg', '2017-05-16', 1),
-(4, 'Devil May Cry', 'Hack and Slash', 1, 'dmc.jpg', '2001-03-16', 1),
-(5, 'Jack and Daxter', 'Plataformas, Aventura', 3, 'jad.jpg', '2004-08-12', 1),
-(6, 'Ratchet and Clank', 'Plataformas, Aventura', 3, 'rac.jpg', '2005-02-12', 1),
-(7, 'Need for Speed', 'Coches, Carreras', 3, 'nfs.jpg', '2015-07-04', 1),
-(8, 'Resident Evil 2 Remake', 'Zombies, Terror', 3, 're2.jpg', '2019-01-25', 1),
-(9, 'Halo: Reach', 'Shooter, Futurista', 2, 'halor.jpg', '2014-10-10', 1),
-(10, 'STAR WARS Jedi: Fallen Order', 'Futurista, Aventura, Espacio', 2, 'swj.jpg', '2018-04-05', 1),
-(11, 'Biomutant', 'Aventura, Accion, Mundo abierto', 2, 'biomutant.jpg', '2018-07-17', 1),
-(12, 'Silent Hill', 'Terror, Accion, Suspense', 2, 'sh.jpg', '2009-02-07', 1);
+(1, 'Counter-Strike', 'Shooter, Multijugador, Tactico', 1, '1.webp', '2000-11-08', 1),
+(2, 'Hunt: Showdown', 'Shooter, Multijugador, Extraction', 1, '2.jpg', '2018-02-22', 1),
+(3, 'Black Desert Online', 'MMORPG', 1, '3.jpg', '2017-05-16', 1),
+(4, 'Devil May Cry', 'Hack and Slash', 1, '4.jpg', '2001-03-16', 1),
+(5, 'The Last of Us', 'Aventura, Acción', 3, '5.webp', '2015-02-12', 1),
+(6, 'Ratchet and Clank', 'Plataformas, Aventura', 3, '6.webp', '2005-02-12', 1),
+(7, 'Need for Speed', 'Coches, Carreras', 3, '7.jpg', '2015-07-04', 1),
+(8, 'Resident Evil 2 Remake', 'Zombies, Terror', 3, '8.jpg', '2019-01-25', 1),
+(9, 'Halo: Reach', 'Shooter, Futurista', 2, '9.jpg', '2014-10-10', 1),
+(10, 'STAR WARS Jedi: Fallen Order', 'Futurista, Aventura, Espacio', 2, '10.jpg', '2018-04-05', 1),
+(11, 'Biomutant', 'Aventura, Accion, Mundo abierto', 2, '11.jpg', '2018-07-17', 1),
+(12, 'Assasin\'s Creed Unity', 'Acción, Aventura, Histórico', 2, '12.jpg', '2009-02-07', 1),
+(13, 'Spellforce', 'Estrategia, 4x', 1, '13.jpg', '2023-02-06', 1);
 
 -- --------------------------------------------------------
 
@@ -86,9 +87,10 @@ CREATE TABLE `plataformas` (
 --
 
 INSERT INTO `plataformas` (`id`, `nombre`, `activo`, `logotipo`) VALUES
-(1, 'PC', 1, 'pc_icon.jpg'),
-(2, 'XBOX', 1, 'xbox_icon.jpg'),
-(3, 'PS5', 1, 'ps4_icon.jpg');
+(1, 'PC', 1, '1.png'),
+(2, 'XBOX', 1, '2.png'),
+(3, 'PS5', 1, '3.png'),
+(4, 'si', 1, '4.png');
 
 -- --------------------------------------------------------
 
@@ -152,13 +154,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `juegos`
 --
 ALTER TABLE `juegos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `plataformas`
 --
 ALTER TABLE `plataformas`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
