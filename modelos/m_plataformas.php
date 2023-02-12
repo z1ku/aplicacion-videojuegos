@@ -99,7 +99,7 @@
             $con->close();
         }
 
-        public function modificar_juego($nombre,$logotipo,$id){
+        public function modificar_plataforma($nombre,$logotipo,$id){
             $con=conectar::conexion();
 
             $insertar=$con->prepare("update plataformas set nombre=?, logotipo=? where id=?");
