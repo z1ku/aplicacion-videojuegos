@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-02-2023 a las 22:03:33
+-- Tiempo de generación: 12-02-2023 a las 20:35:35
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -90,7 +90,7 @@ INSERT INTO `plataformas` (`id`, `nombre`, `activo`, `logotipo`) VALUES
 (1, 'PC', 1, '1.png'),
 (2, 'XBOX', 1, '2.png'),
 (3, 'PS5', 1, '3.png'),
-(4, 'si', 1, '4.png');
+(4, 'Nintendo', 1, '4.png');
 
 -- --------------------------------------------------------
 
