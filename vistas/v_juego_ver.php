@@ -15,11 +15,41 @@
     <main>
         <section class="seccionJuegos">
             <?php
-                echo "<h1>".$juego['nombre']."</h1>
+                echo "<div class=\"infoJuego\">
+                <h1>".$juego['nombre']."</h1>
                 <img src=\"../assets/img/juegos/".$juego['caratula']."\">
                 <p>".$juego['descripcion']."</p>
                 <p>".$plataforma['nombre']."</p>
-                <p>".$juego['fecha_lanzamiento']."</p>";
+                <p>".$juego['fecha_lanzamiento']."</p>
+                </div>";
+
+                if($tipo_usu=="usuario"){
+
+                    if($comentarios!=null){
+                        echo "<div class=\"cajaComentarios\">";
+                        for($i=0;$i<count($comentarios);$i++){
+                            echo '<div class="comentario">
+                                <p>'.$comentarios[$i]['nick'].'</p>
+                                <p>'.$comentarios[$i]['fecha'].'</p>
+                                <p>'.$comentarios[$i]['texto'].'</p>
+                            </div>';
+                        }
+                        echo "</div>";
+                    }
+
+                    if(isset($ok)){
+                        echo $mensaje;
+                    }
+
+                    echo '<form action="../controladores/c_insertar_comentario.php" method="post">
+                    <input type="hidden" name="id_juego" value="'.$id.'">
+                    <div>
+                        <label for="texto">Comentario:</label>
+                        <textarea name="texto" cols="30" rows="10" maxlength="100" required></textarea>
+                    </div>
+                    <input type="submit" name="insertar_comentario" value="Enviar">
+                    </form>';
+                }
             ?>
         </section>
     </main>

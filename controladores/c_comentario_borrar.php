@@ -2,8 +2,6 @@
     if(isset($_POST['enviar'])){
         require_once("../funciones/funciones.php");
         require_once("../bd/bd.php");
-        require_once("../modelos/m_juegos.php");
-        require_once("../modelos/m_plataformas.php");
         require_once("../modelos/m_comentario.php");
 
         session_start();
@@ -30,21 +28,26 @@
             $tipo_usu="invitado";
         }
 
-        $id=$_POST['id_juego'];
-
-        $jue=new juego();
-        $juego=$jue->juego_por_id($id);
-
-        $plata=new plataforma();
-        $plataforma=$plata->plataforma_por_id($juego['plataforma']);
-
-        if($tipo_usu=="usuario"){
-            $comen=new comentario();
-            $comentarios=$comen->ver_comentarios_por_juego($id);
+        if($tipo_usu!="admin"){
+            header("Location:../index.php");
         }
 
-        include "../vistas/v_juego_ver.php";
+        $comen=new comentario();
+
+        $usuario=$_POST['id_usu'];
+        $juego=$_POST['id_jue'];
+        $fecha=$_POST['fecha'];
+        $texto=$_POST['texto'];
+
+        $comen->borrar_comentario($usuario,$juego,$fecha,$texto);
+
+        $ok=true;
+        $mensaje="<p>Comentario borrado</p>";
+
+        $comentarios=$comen->todos_comentarios();
+
+        include "../vistas/v_comentarios.php";
     }else{
-        header("Location:../index.php");
+
     }
 ?>

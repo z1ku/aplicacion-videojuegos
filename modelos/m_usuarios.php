@@ -144,6 +144,18 @@
             return $datos;
         }
 
+        public function obtener_id_por_nick($nick){
+            $con=conectar::conexion();
+
+            $sentencia="select id from usuarios where nick='$nick'";
+            $resultado=$con->query($sentencia);
+
+            $fila=$resultado->fetch_array(MYSQLI_NUM);
+            $id=$fila[0];
+
+            return $id;
+        }
+
 
     }
 

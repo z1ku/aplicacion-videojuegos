@@ -1,10 +1,11 @@
-<?php
-    if(isset($_POST['enviar'])){
+<?php  
+    if(isset($_POST['insertar_comentario'])){
         require_once("../funciones/funciones.php");
         require_once("../bd/bd.php");
         require_once("../modelos/m_juegos.php");
         require_once("../modelos/m_plataformas.php");
         require_once("../modelos/m_comentario.php");
+        require_once("../modelos/m_usuarios.php");
 
         session_start();
 
@@ -30,21 +31,49 @@
             $tipo_usu="invitado";
         }
 
+        $comen=new comentario();
+        $jue=new juego();
+        $plata=new plataforma();
+        $usu=new usuario();
+
         $id=$_POST['id_juego'];
 
-        $jue=new juego();
+        $ok=false;
+        //COMPROBACIONES
+        if($_POST['texto']==""){
+            $mensaje="<p>Escribe algo</p>";
+        }else if(strlen($_POST['texto'])>100){
+            $mensaje="<p>El comentario no puede ser mayor de 100 caracteres</p>";
+        }else{
+            $ok=true;
+
+            $texto=$_POST['texto'];
+            $fecha=date('Y-m-d');
+            $usuario=$usu->obtener_id_por_nick($nick);
+
+            $num=$comen->buscar_duplicado($usuario,$id,$fecha,$texto);
+
+            if($num>0){
+                $mensaje="<p>Ya has hecho ese comentario</p>";
+            }else{
+                $comen->insertar_comentario($usuario,$id,$fecha,$texto);
+
+                $mensaje="<p>Comentario insertado correctamente</p>";
+            }
+        }
+
         $juego=$jue->juego_por_id($id);
 
-        $plata=new plataforma();
         $plataforma=$plata->plataforma_por_id($juego['plataforma']);
 
         if($tipo_usu=="usuario"){
-            $comen=new comentario();
             $comentarios=$comen->ver_comentarios_por_juego($id);
         }
 
         include "../vistas/v_juego_ver.php";
+        
     }else{
         header("Location:../index.php");
     }
+
 ?>
