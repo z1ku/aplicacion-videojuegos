@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-02-2023 a las 20:35:35
+-- Tiempo de generación: 13-02-2023 a las 20:48:05
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -31,8 +31,18 @@ CREATE TABLE `comentario` (
   `usuario` bigint(20) UNSIGNED NOT NULL,
   `juego` bigint(20) UNSIGNED NOT NULL,
   `fecha` date NOT NULL,
-  `texto` varchar(300) COLLATE latin1_spanish_ci NOT NULL
+  `texto` varchar(100) COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `comentario`
+--
+
+INSERT INTO `comentario` (`usuario`, `juego`, `fecha`, `texto`) VALUES
+(2, 1, '2023-02-13', 'Buen juego'),
+(2, 6, '2023-02-13', 'Es el juego de mi infancia'),
+(2, 13, '2023-02-13', 'Buen juego parsero'),
+(3, 3, '2023-02-13', 'Buen juego para acabar con tu vida social');
 
 -- --------------------------------------------------------
 
@@ -113,7 +123,8 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`id`, `nombre`, `nick`, `pass`, `activo`) VALUES
 (0, NULL, 'admin', 'admin', NULL),
 (2, 'Richard', 'richar1', 'richar1', 1),
-(3, 'Jesus', 'jesus1', 'jesus1', 1);
+(3, 'Jesus', 'jesus1', 'jesus1', 1),
+(4, 'Josemanue', 'deeky1', 'deeky1', 1);
 
 --
 -- Índices para tablas volcadas
@@ -123,9 +134,10 @@ INSERT INTO `usuarios` (`id`, `nombre`, `nick`, `pass`, `activo`) VALUES
 -- Indices de la tabla `comentario`
 --
 ALTER TABLE `comentario`
-  ADD PRIMARY KEY (`usuario`,`juego`,`fecha`),
+  ADD PRIMARY KEY (`usuario`,`juego`,`fecha`,`texto`),
   ADD KEY `ce_com_juego` (`juego`),
-  ADD KEY `usuario` (`usuario`,`juego`,`fecha`);
+  ADD KEY `usuario` (`usuario`,`juego`,`fecha`),
+  ADD KEY `texto` (`texto`);
 
 --
 -- Indices de la tabla `juegos`
@@ -166,7 +178,7 @@ ALTER TABLE `plataformas`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
