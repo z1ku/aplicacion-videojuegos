@@ -52,6 +52,98 @@
             return $res;
         }
 
+        public function todos_usuarios(){
+            $con=conectar::conexion();
+            $buscar=$con->query("select * from usuarios");
+
+            if($buscar->num_rows>0){
+                $i=0;
+                while($fila_buscar=$buscar->fetch_array(MYSQLI_ASSOC)){
+                    $datos[$i]['id']=$fila_buscar['id'];
+                    $datos[$i]['nombre']=$fila_buscar['nombre'];
+                    $datos[$i]['nick']=$fila_buscar['nick'];
+                    $datos[$i]['pass']=$fila_buscar['pass'];
+                    $datos[$i]['activo']=$fila_buscar['activo'];
+                    $i++;
+                }
+            }else{
+                $datos=null;
+            }
+
+            $con->close();
+            return $datos;
+        }
+
+        public function buscar_usuarios_por_nombre($cadena){
+            $param="%$cadena%";
+
+            $con=conectar::conexion();
+            $buscar=$con->prepare("select distinct * from usuarios where nombre like ?");
+            $buscar->bind_param("s",$param);
+            $buscar->bind_result($id,$nombre,$nick,$pass,$activo);
+            $buscar->execute();
+            $buscar->store_result();
+
+            if($buscar->num_rows>0){
+                $i=0;
+                while($buscar->fetch()){
+                    $datos[$i]['id']=$id;
+                    $datos[$i]['nombre']=$nombre;
+                    $datos[$i]['nick']=$nick;
+                    $datos[$i]['pass']=$pass;
+                    $datos[$i]['activo']=$activo;
+                    $i++;
+                }
+            }else{
+                $datos=null;
+            }
+
+            $buscar->close();
+            $con->close();
+            return $datos;
+        }
+
+        public function insertar_usuario($nombre,$nick,$pass){
+            $con=conectar::conexion();
+
+            $insertar=$con->prepare("insert into usuarios values(null,?,?,?,1)");
+            $insertar->bind_param("sss",$nombre,$nick,$pass);
+            $insertar->execute();
+
+            $insertar->close();
+            $con->close();
+        }
+
+        public function modificar_usuario($nombre,$nick,$pass,$activo,$id){
+            $con=conectar::conexion();
+
+            $insertar=$con->prepare("update usuarios set nombre=?, nick=?, pass=?, activo=? where id=?");
+            $insertar->bind_param("sssii",$nombre,$nick,$pass,$activo,$id);
+            $insertar->execute();
+
+            $insertar->close();
+            $con->close();
+        }
+
+        public function usuario_por_id($id){
+            $con=conectar::conexion();
+            $buscar=$con->query("select * from usuarios where id=$id");
+
+            if($buscar->num_rows>0){
+                $fila=$buscar->fetch_array(MYSQLI_ASSOC);
+                $datos['id']=$fila['id'];
+                $datos['nombre']=$fila['nombre'];
+                $datos['nick']=$fila['nick'];
+                $datos['pass']=$fila['pass'];
+                $datos['activo']=$fila['activo'];
+            }else{
+                $datos=null;
+            }
+
+            $con->close();
+            return $datos;
+        }
+
 
     }
 
