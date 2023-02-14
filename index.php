@@ -45,11 +45,11 @@
         }
     ?>
     <main>
-        <section class="bienvenida">
-            <h1>Bienvenido a Gaming Hub</h1>
+        <section class="bienvenida w-75 mx-auto my-5">
+            <h1 class="text-center">Bienvenido a Gaming Hub</h1>
         </section>
-        <section class="seccionUltimosLanzamientos">
-            <h2>Últimos lanzamientos</h2>
+        <section class="seccionUltimosLanzamientos w-75 mx-auto my-5">
+            <h2 class="text-center">Últimos lanzamientos</h2>
             <?php
                 $plata=new plataforma();
                 $plataformas=$plata->todas_plataformas();
@@ -59,12 +59,17 @@
                 for($i=0;$i<count($plataformas);$i++){
                     $juegos=$jue->ultimos_juegos_por_plataforma($plataformas[$i]['id']);
                     if($juegos!=null){
-                        echo "<div>
-                        <h3>".$plataformas[$i]['nombre']."</h3>";
-                        echo '<div class="card-group">';
+                        echo '<div>
+                        <h3 class="text-center">'.$plataformas[$i]['nombre'].'</h3>';
+                        echo '<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">';
                         for($j=0;$j<count($juegos);$j++){
-                            echo '<div class="card">
-                                <img src="assets/img/juegos/'.$juegos[$j]['caratula'].'" class="card-img-top object-fit-cover" alt="">
+                            echo '<div class="col">';
+                            echo '<div class="card text-center h-100">
+                                <img src="assets/img/juegos/'.$juegos[$j]['caratula'].'" class="card-img-top h-100 object-fit-cover" alt="">
+                                <div class="card-body">
+                                    <h3 class="card-title">'.$juegos[$j]['nombre'].'</h3>
+                                </div>
+                            </div>
                             </div>';
                         }
                         echo "</div>";
