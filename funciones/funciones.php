@@ -27,7 +27,7 @@
     //HEADER INDEX INVITADO
     function headerIndexGuest(){
         echo '<header class="sticky-top">
-            <nav class="navbar sticky-top navbar-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+            <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="index.php">
                         <img src="assets/img/logo.png" alt="" id="logo">
@@ -52,8 +52,8 @@
 
     //HEADER INDEX ADMIN
     function headerIndexAdmin(){
-        echo '<header>
-            <nav class="navbar sticky-top navbar-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        echo '<header class="sticky-top">
+            <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="index.php">
                         <img src="assets/img/logo.png" alt="" id="logo">
@@ -80,8 +80,8 @@
 
     //HEADER INDEX USUARIO
     function headerIndexUsu(){
-        echo '<header>
-            <nav class="navbar sticky-top navbar-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        echo '<header class="sticky-top">
+            <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="index.php">
                         <img src="assets/img/logo.png" alt="" id="logo">
@@ -106,8 +106,8 @@
 
     //HEADER DEFAULT INVITADO
     function headerGuest(){
-        echo '<header>
-            <nav class="navbar sticky-top navbar-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        echo '<header class="sticky-top">
+            <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="../index.php">
                         <img src="../assets/img/logo.png" alt="" id="logo">
@@ -132,8 +132,8 @@
 
     //HEADER DEFAULT ADMIN
     function headerAdmin(){
-        echo '<header>
-            <nav class="navbar sticky-top navbar-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        echo '<header class="sticky-top">
+            <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="../index.php">
                         <img src="../assets/img/logo.png" alt="" id="logo">
@@ -160,8 +160,8 @@
 
     //HEADER DEFAULT USUARIO
     function headerUsu(){
-        echo '<header>
-            <nav class="navbar sticky-top sticky-top navbar-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        echo '<header class="sticky-top">
+            <nav class="navbar sticky-top navbar-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="../index.php">
                         <img src="../assets/img/logo.png" alt="" id="logo">
