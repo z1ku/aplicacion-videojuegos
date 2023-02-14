@@ -31,5 +31,7 @@
     $plata=new plataforma();
     $plataformas=$plata->todas_plataformas();
 
+    $controlador=true;
+
     include "../vistas/v_plataformas.php";
 ?>

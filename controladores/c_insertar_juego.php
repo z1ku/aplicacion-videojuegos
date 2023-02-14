@@ -29,6 +29,10 @@
             $tipo_usu="invitado";
         }
 
+        if($tipo_usu!="admin"){
+            header("Location:../index.php");
+        }
+
         $ok=false;
         //COMPROBACIONES
         if($_FILES['foto']['type']!="image/jpeg" && $_FILES['foto']['type']!="image/webp" &&  is_uploaded_file($_FILES['foto']['tmp_name'])){
@@ -62,6 +66,8 @@
 
         $plata=new plataforma();
         $plataformas=$plata->todas_plataformas();
+
+        $controlador=true;
 
         include "../vistas/v_juego_nuevo.php";
         

@@ -28,6 +28,10 @@
             $tipo_usu="invitado";
         }
 
+        if($tipo_usu!="admin"){
+            header("Location:../index.php");
+        }
+
         $ok=false;
         //COMPROBACIONES
         if($_FILES['foto']['type']!="image/png" && is_uploaded_file($_FILES['foto']['tmp_name'])){
@@ -56,6 +60,8 @@
 
             $mensaje="<p>Plataforma insertada correctamente</p>";
         }
+
+        $controlador=true;
 
         include "../vistas/v_plataforma_nueva.php";
         

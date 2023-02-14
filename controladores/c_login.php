@@ -6,6 +6,8 @@
         
         headerGuest();
 
+        $controlador=true;
+
         include "../vistas/v_login.php";
     }else{
         header("Location:../index.php");

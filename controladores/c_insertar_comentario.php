@@ -31,6 +31,10 @@
             $tipo_usu="invitado";
         }
 
+        if($tipo_usu!="admin"){
+            header("Location:../index.php");
+        }
+
         $comen=new comentario();
         $jue=new juego();
         $plata=new plataforma();
@@ -69,6 +73,8 @@
         if($tipo_usu=="usuario"){
             $comentarios=$comen->ver_comentarios_por_juego($id);
         }
+
+        $controlador=true;
 
         include "../vistas/v_juego_ver.php";
         

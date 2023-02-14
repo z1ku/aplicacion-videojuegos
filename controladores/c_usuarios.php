@@ -34,5 +34,7 @@
     $usu=new usuario();
     $usuarios=$usu->todos_usuarios();
 
+    $controlador=true;
+
     include "../vistas/v_usuarios.php";
 ?>

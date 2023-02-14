@@ -37,6 +37,8 @@
             $jue=new juego();
             $juegos=$jue->juegos_por_plataforma($_GET['plata_id']);
 
+            $controlador=true;
+
             include "../vistas/v_juegos_por_plataforma.php";
         }else{
             header("Location:../index.php");

@@ -28,10 +28,16 @@
             $tipo_usu="invitado";
         }
 
+        if($tipo_usu!="admin"){
+            header("Location:../index.php");
+        }
+
         $id=$_POST['id_plata'];
 
         $plata=new plataforma();
         $datos=$plata->plataforma_por_id($id);
+
+        $controlador=true;
 
         include "../vistas/v_plataforma_editar.php";
     }else{

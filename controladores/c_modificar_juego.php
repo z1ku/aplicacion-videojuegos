@@ -29,6 +29,10 @@
             $tipo_usu="invitado";
         }
 
+        if($tipo_usu!="admin"){
+            header("Location:../index.php");
+        }
+
         $jue=new juego();
         $plataf=new plataforma();
 
@@ -75,6 +79,8 @@
 
         $datos=$jue->juego_por_id($id);
         $plataformas=$plataf->todas_plataformas();
+
+        $controlador=true;
 
         include "../vistas/v_juego_editar.php";
 

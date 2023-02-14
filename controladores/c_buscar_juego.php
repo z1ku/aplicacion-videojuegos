@@ -29,12 +29,18 @@
             $tipo_usu="invitado";
         }
 
+        if($tipo_usu!="admin"){
+            header("Location:../index.php");
+        }
+
         $cadena=$_POST['cadena'];
 
         $plata=new plataforma();
         $jue=new juego();
 
         $juegos=$jue->buscar_juegos_por_nombre($cadena);
+
+        $controlador=true;
 
         include "../vistas/v_buscar_juego.php";
     }else{

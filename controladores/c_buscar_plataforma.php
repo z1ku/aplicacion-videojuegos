@@ -29,11 +29,17 @@
             $tipo_usu="invitado";
         }
 
+        if($tipo_usu!="admin"){
+            header("Location:../index.php");
+        }
+
         $cadena=$_POST['cadena'];
 
         $plata=new plataforma();
 
         $plataformas=$plata->buscar_plataformas_por_nombre($cadena);
+
+        $controlador=true;
 
         include "../vistas/v_plataformas.php";
     }else{

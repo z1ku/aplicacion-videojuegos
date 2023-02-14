@@ -1,3 +1,9 @@
+<?php
+    if(!isset($controlador)){
+        header("Location:../index.php");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

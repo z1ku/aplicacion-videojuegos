@@ -34,5 +34,7 @@
     $comen=new comentario();
     $comentarios=$comen->todos_comentarios();
 
+    $controlador=true;
+
     include "../vistas/v_comentarios.php";
 ?>

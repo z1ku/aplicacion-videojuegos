@@ -28,8 +28,14 @@
         $tipo_usu="invitado";
     }
 
+    if($tipo_usu!="admin"){
+        header("Location:../index.php");
+    }
+
     $plata=new plataforma();
     $plataformas=$plata->todas_plataformas();
+
+    $controlador=true;
 
     include "../vistas/v_juego_nuevo.php";
 ?>

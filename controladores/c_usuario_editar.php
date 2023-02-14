@@ -28,10 +28,16 @@
             $tipo_usu="invitado";
         }
 
+        if($tipo_usu!="admin"){
+            header("Location:../index.php");
+        }
+
         $id=$_POST['id_usu'];
 
         $usu=new usuario();
         $datos=$usu->usuario_por_id($id);
+
+        $controlador=true;
 
         include "../vistas/v_usuario_editar.php";
     }else{

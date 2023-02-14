@@ -31,5 +31,7 @@
         header("Location:../index.php");
     }
 
+    $controlador=true;
+
     include "../vistas/v_plataforma_nueva.php";
 ?>

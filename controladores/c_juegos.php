@@ -33,5 +33,7 @@
 
     $jue=new juego();
 
+    $controlador=true;
+
     include "../vistas/v_juegos.php";
 ?>

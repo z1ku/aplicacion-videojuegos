@@ -28,6 +28,10 @@
             $tipo_usu="invitado";
         }
 
+        if($tipo_usu!="admin"){
+            header("Location:../index.php");
+        }
+
         $ok=false;
         //COMPROBACIONES
         if($_POST['nombre']=="" || $_POST['nick']=="" || $_POST['pass']==""){
@@ -51,6 +55,8 @@
 
             $mensaje="<p>Usuario insertado correctamente</p>";
         }
+
+        $controlador=true;
 
         include "../vistas/v_usuario_nuevo.php";
         

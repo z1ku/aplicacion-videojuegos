@@ -38,6 +38,8 @@
 
         $usuarios=$usu->buscar_usuarios_por_nombre($cadena);
 
+        $controlador=true;
+
         include "../vistas/v_usuarios.php";
     }else{
         header("Location:../index.php");

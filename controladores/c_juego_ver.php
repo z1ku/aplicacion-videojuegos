@@ -43,6 +43,8 @@
             $comentarios=$comen->ver_comentarios_por_juego($id);
         }
 
+        $controlador=true;
+
         include "../vistas/v_juego_ver.php";
     }else{
         header("Location:../index.php");
