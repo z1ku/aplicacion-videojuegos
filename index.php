@@ -45,11 +45,11 @@
         }
     ?>
     <main>
-        <section class="bienvenida w-75 mx-auto my-5">
+        <section class="bienvenida w-75 mx-auto my-2">
             <h1 class="text-center">Bienvenido a Gaming Hub</h1>
         </section>
         <section class="seccionUltimosLanzamientos w-75 mx-auto my-5">
-            <h2 class="text-center">Últimos lanzamientos</h2>
+            <h2 class="text-center fs-2">Últimos lanzamientos</h2>
             <?php
                 $plata=new plataforma();
                 $plataformas=$plata->todas_plataformas();
@@ -59,8 +59,8 @@
                 for($i=0;$i<count($plataformas);$i++){
                     $juegos=$jue->ultimos_juegos_por_plataforma($plataformas[$i]['id']);
                     if($juegos!=null){
-                        echo '<div>
-                        <h3 class="text-center">'.$plataformas[$i]['nombre'].'</h3>';
+                        echo '<div class="my-5">
+                        <h3 class="text-center my-3 fs-2">'.$plataformas[$i]['nombre'].'</h3>';
                         echo '<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">';
                         for($j=0;$j<count($juegos);$j++){
                             echo '<div class="col">';
@@ -78,29 +78,46 @@
                 }
             ?>
         </section>
-        <section class="seccionUltimosComentarios">
-            <h2>Últimos comentarios</h2>
+        <section class="seccionUltimosComentarios w-75 mx-auto my-5">
+            <h2 class="text-center fs-2">Últimos comentarios</h2>
             <?php
                 $comen=new comentario();
                 $comentarios=$comen->ultimos_comentarios();
 
                 if($comentarios!=null){
-                    echo '<table border>
-                    <tr>
-                        <td>Caratula</td>
-                        <td>Nombre</td>
-                        <td>Texto</td>
-                        <td>Fecha</td>
-                    </tr>';
+                    echo '<div id="ultimosComentarios" class="carousel m-auto" data-bs-ride="carousel" style="width: 20rem;">
+                    <div class="carousel-inner">';
                     for($i=0;$i<count($comentarios);$i++){
-                        echo '<tr>
-                            <td><img src="assets/img/juegos/'.$comentarios[$i]['caratula'].'"></td>
-                            <td>'.$comentarios[$i]['nombre'].'</td>
-                            <td>'.$comentarios[$i]['texto'].'</td>
-                            <td>'.$comentarios[$i]['fecha'].'</td>
-                        </tr>';
+                        if($i==0){
+                            echo '<div class="carousel-item active">
+                                <img src="assets/img/juegos/'.$comentarios[$i]['caratula'].'" class="d-block w-100" alt="">
+                                <div class="carousel-caption d-none d-md-block bg-black bg-opacity-75">
+                                    <h5>'.$comentarios[$i]['nombre'].'</h5>
+                                    <p>'.$comentarios[$i]['texto'].'</p>
+                                    <p>'.$comentarios[$i]['fecha'].'</p>
+                                </div>
+                            </div>';
+                        }else{
+                            echo '<div class="carousel-item">
+                                <img src="assets/img/juegos/'.$comentarios[$i]['caratula'].'" class="d-block w-100" alt="">
+                                <div class="carousel-caption d-none d-md-block bg-black bg-opacity-75">
+                                    <h5>'.$comentarios[$i]['nombre'].'</h5>
+                                    <p>'.$comentarios[$i]['texto'].'</p>
+                                    <p>'.$comentarios[$i]['fecha'].'</p>
+                                </div>
+                            </div>';
+                        }
                     }
-                    echo '</table>';
+                    echo '</div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#ultimosComentarios" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#ultimosComentarios" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>';
                 }
             ?>
         </section>

@@ -26,7 +26,7 @@
     ////////////////////////////////////////////////////////////////////
     //HEADER INDEX INVITADO
     function headerIndexGuest(){
-        echo '<header>
+        echo '<header class="sticky-top">
             <nav class="navbar sticky-top navbar-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="index.php">

@@ -4,13 +4,17 @@
 
 body{
     margin: 0;
-    font-family: 'Play', sans-serif;
-    background-color: #141414;
-    color: #eaeaea;
+    font-family: 'Play', sans-serif !important;
+    background-color: #141414 !important;
+    color: #eaeaea !important;
 }
 
 img{
     max-width: 100%;
+}
+
+header .bg-body-tertiary{
+    background-color: #141414 !important;
 }
 
 #logo{
@@ -18,8 +22,8 @@ img{
     margin: 0.5rem 2rem 0.5rem 0.5rem;
 }
 
-.bienvenida h1{
-    
+div.card{
+    background-color: #070707 !important;
 }
 
 /* ESTILOS PARA EL FOOTER */
