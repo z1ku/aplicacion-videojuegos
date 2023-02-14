@@ -59,16 +59,16 @@
                 for($i=0;$i<count($plataformas);$i++){
                     $juegos=$jue->ultimos_juegos_por_plataforma($plataformas[$i]['id']);
                     if($juegos!=null){
-                        echo "<table border>
-                        <tr>
-                            <td colspan=\"4\">".$plataformas[$i]['nombre']."</td>
-                        </tr>";
-                        echo "<tr>";
+                        echo "<div>
+                        <h3>".$plataformas[$i]['nombre']."</h3>";
+                        echo '<div class="card-group">';
                         for($j=0;$j<count($juegos);$j++){
-                            echo "<td>".$juegos[$j]['nombre']."</td>";
+                            echo '<div class="card">
+                                <img src="assets/img/juegos/'.$juegos[$j]['caratula'].'" class="card-img-top object-fit-cover" alt="">
+                            </div>';
                         }
-                        echo "</tr>";
-                        echo "</table>";
+                        echo "</div>";
+                        echo "</div>";
                     }
                 }
             ?>
