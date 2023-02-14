@@ -103,6 +103,27 @@
             return $num;
         }
 
+        public function ultimos_comentarios(){
+            $con=conectar::conexion();
+
+            $buscar=$con->query("select usuarios.nombre,juegos.caratula,texto,fecha from comentario,juegos,usuarios where usuario=usuarios.id and juego=juegos.id order by fecha desc limit 0, 4");
+
+            if($buscar->num_rows>0){
+                $i=0;
+                while($fila=$buscar->fetch_array(MYSQLI_ASSOC)){
+                    $datos[$i]['nombre']=$fila['nombre'];
+                    $datos[$i]['caratula']=$fila['caratula'];
+                    $datos[$i]['texto']=$fila['texto'];
+                    $datos[$i]['fecha']=$fila['fecha'];
+                    $i++;
+                }
+            }else{
+                $datos=null;
+            }
+
+            $con->close();
+            return $datos;
+        }
 
     }
 

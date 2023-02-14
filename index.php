@@ -3,6 +3,7 @@
     require_once("bd/bd.php");
     require_once("modelos/m_juegos.php");
     require_once("modelos/m_plataformas.php");
+    require_once("modelos/m_comentario.php");
 
     session_start();
 
@@ -72,6 +73,29 @@
         </section>
         <section class="seccionUltimosComentarios">
             <h2>Últimos comentarios</h2>
+            <?php
+                $comen=new comentario();
+                $comentarios=$comen->ultimos_comentarios();
+
+                if($comentarios!=null){
+                    echo '<table border>
+                    <tr>
+                        <td>Caratula</td>
+                        <td>Nombre</td>
+                        <td>Texto</td>
+                        <td>Fecha</td>
+                    </tr>';
+                    for($i=0;$i<count($comentarios);$i++){
+                        echo '<tr>
+                            <td><img src="assets/img/juegos/'.$comentarios[$i]['caratula'].'"></td>
+                            <td>'.$comentarios[$i]['nombre'].'</td>
+                            <td>'.$comentarios[$i]['texto'].'</td>
+                            <td>'.$comentarios[$i]['fecha'].'</td>
+                        </tr>';
+                    }
+                    echo '</table>';
+                }
+            ?>
         </section>
     </main>
     <footer>
