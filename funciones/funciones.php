@@ -26,155 +26,154 @@
     ////////////////////////////////////////////////////////////////////
     //HEADER INDEX INVITADO
     function headerIndexGuest(){
-        echo '<header>
-            <a href="index.php"><img src="assets/img/logo.png" alt="" id="logo"></a>
-            <nav>
-                <ul>
-                    <li><a href="index.php">Inicio</a></li>
-                    <li><a href="controladores/c_juegos.php">Juegos</a></li>
-                    <li><a href="controladores/c_plataformas.php">Plataformas</a></li>
-                </ul>
-            </nav>
-            <div class="rrss">
-                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                <a href="#"><i class="fa-brands fa-discord"></i></a>
+        echo '<nav class="navbar sticky-top navbar-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.php">
+                    <img src="assets/img/logo.png" alt="" id="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link m-1 fs-5" href="index.php">Inicio</a>
+                        <a class="nav-link m-1 fs-5" href="controladores/c_juegos.php">Juegos</a>
+                        <a class="nav-link m-1 fs-5" href="controladores/c_plataformas.php">Plataformas</a>
+                    </div>
+                    <form action="controladores/c_login.php" method="post">
+                        <input type="submit" class="btn btn-primary" name="enviar" value="Login">
+                    </form>
+                </div>
             </div>
-            <div class="login">
-                <form action="controladores/c_login.php" method="post">
-                    <input type="submit" name="enviar" id="btn-login" value="Login">
-                </form>
-            </div>
-        </header>';
+        </nav>';
     }
 
     //HEADER INDEX ADMIN
     function headerIndexAdmin(){
-        echo '<header>
-            <a href="index.php"><img src="assets/img/logo.png" alt="" id="logo"></a>
-            <nav>
-                <ul>
-                    <li><a href="index.php">Inicio</a></li>
-                    <li><a href="controladores/c_juegos.php">Juegos</a></li>
-                    <li><a href="controladores/c_plataformas.php">Plataformas</a></li>
-                    <li><a href="controladores/c_usuarios.php">Usuarios</a></li>
-                    <li><a href="controladores/c_comentarios.php">Comentarios</a></li>
-                </ul>
-            </nav>
-            <div class="rrss">
-                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                <a href="#"><i class="fa-brands fa-discord"></i></a>
+        echo '<nav class="navbar sticky-top navbar-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.php">
+                    <img src="assets/img/logo.png" alt="" id="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link m-1 fs-5" href="index.php">Inicio</a>
+                        <a class="nav-link m-1 fs-5" href="controladores/c_juegos.php">Juegos</a>
+                        <a class="nav-link m-1 fs-5" href="controladores/c_plataformas.php">Plataformas</a>
+                        <a class="nav-link m-1 fs-5" href="controladores/c_usuarios.php">Usuarios</a>
+                        <a class="nav-link m-1 fs-5" href="controladores/c_comentarios.php">Comentarios</a>
+                    </div>
+                    <form action="controladores/c_cerrar_sesion.php" method="post">
+                        <input type="submit" class="btn btn-danger" name="desconectar" value="Salir">
+                    </form>
+                </div>
             </div>
-            <div class="login">
-                <form action="controladores/c_cerrar_sesion.php" method="post">
-                    <input type="submit" name="desconectar" id="btn-login" value="Salir">
-                </form>
-            </div>
-        </header>';
+        </nav>';
     }
 
     //HEADER INDEX USUARIO
     function headerIndexUsu(){
-        echo '<header>
-            <a href="index.php"><img src="assets/img/logo.png" alt="" id="logo"></a>
-            <nav>
-                <ul>
-                    <li><a href="index.php">Inicio</a></li>
-                    <li><a href="controladores/c_juegos.php">Juegos</a></li>
-                    <li><a href="controladores/c_plataformas.php">Plataformas</a></li>
-                </ul>
-            </nav>
-            <div class="rrss">
-                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                <a href="#"><i class="fa-brands fa-discord"></i></a>
+        echo '<nav class="navbar sticky-top navbar-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.php">
+                    <img src="assets/img/logo.png" alt="" id="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link m-1 fs-5" href="index.php">Inicio</a>
+                        <a class="nav-link m-1 fs-5" href="controladores/c_juegos.php">Juegos</a>
+                        <a class="nav-link m-1 fs-5" href="controladores/c_plataformas.php">Plataformas</a>
+                    </div>
+                    <form action="controladores/c_cerrar_sesion.php" method="post">
+                        <input type="submit" class="btn btn-danger" name="desconectar" value="Salir">
+                    </form>
+                </div>
             </div>
-            <div class="login">
-                <form action="controladores/c_cerrar_sesion.php" method="post">
-                    <input type="submit" name="desconectar" id="btn-login" value="Salir">
-                </form>
-            </div>
-        </header>';
+        </nav>';
     }
 
     //HEADER DEFAULT INVITADO
     function headerGuest(){
-        echo '<header>
-            <a href="../index.php"><img src="../assets/img/logo.png" alt="" id="logo"></a>
-            <nav>
-                <ul>
-                    <li><a href="../index.php">Inicio</a></li>
-                    <li><a href="../controladores/c_juegos.php">Juegos</a></li>
-                    <li><a href="../controladores/c_plataformas.php">Plataformas</a></li>
-                </ul>
-            </nav>
-            <div class="rrss">
-                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                <a href="#"><i class="fa-brands fa-discord"></i></a>
+        echo '<nav class="navbar sticky-top navbar-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../index.php">
+                    <img src="../assets/img/logo.png" alt="" id="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link m-1 fs-5" href="../index.php">Inicio</a>
+                        <a class="nav-link m-1 fs-5" href="../controladores/c_juegos.php">Juegos</a>
+                        <a class="nav-link m-1 fs-5" href="../controladores/c_plataformas.php">Plataformas</a>
+                    </div>
+                    <form action="../controladores/c_login.php" method="post">
+                        <input type="submit" class="btn btn-primary" name="enviar" value="Login">
+                    </form>
+                </div>
             </div>
-            <div class="login">
-                <form action="../controladores/c_login.php" method="post">
-                    <input type="submit" name="enviar" id="btn-login" value="Login">
-                </form>
-            </div>
-        </header>';
+        </nav>';
     }
 
     //HEADER DEFAULT ADMIN
     function headerAdmin(){
-        echo '<header>
-            <a href="../index.php"><img src="../assets/img/logo.png" alt="" id="logo"></a>
-            <nav>
-                <ul>
-                    <li><a href="../index.php">Inicio</a></li>
-                    <li><a href="../controladores/c_juegos.php">Juegos</a></li>
-                    <li><a href="../controladores/c_plataformas.php">Plataformas</a></li>
-                    <li><a href="../controladores/c_usuarios.php">Usuarios</a></li>
-                    <li><a href="../controladores/c_comentarios.php">Comentarios</a></li>
-                </ul>
-            </nav>
-            <div class="rrss">
-                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                <a href="#"><i class="fa-brands fa-discord"></i></a>
+        echo '<nav class="navbar sticky-top navbar-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../index.php">
+                    <img src="../assets/img/logo.png" alt="" id="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link m-1 fs-5" href="../index.php">Inicio</a>
+                        <a class="nav-link m-1 fs-5" href="../controladores/c_juegos.php">Juegos</a>
+                        <a class="nav-link m-1 fs-5" href="../controladores/c_plataformas.php">Plataformas</a>
+                        <a class="nav-link m-1 fs-5" href="../controladores/c_usuarios.php">Usuarios</a>
+                        <a class="nav-link m-1 fs-5" href="../controladores/c_comentarios.php">Comentarios</a>
+                    </div>
+                    <form action="../controladores/c_cerrar_sesion.php" method="post">
+                        <input type="submit" class="btn btn-danger" name="desconectar" value="Salir">
+                    </form>
+                </div>
             </div>
-            <div class="login">
-                <form action="../controladores/c_cerrar_sesion.php" method="post">
-                    <input type="submit" name="desconectar" id="btn-login" value="Salir">
-                </form>
-            </div>
-        </header>';
+        </nav>';
     }
 
     //HEADER DEFAULT USUARIO
     function headerUsu(){
-        echo '<header>
-            <a href="../index.php"><img src="../assets/img/logo.png" alt="" id="logo"></a>
-            <nav>
-                <ul>
-                    <li><a href="../index.php">Inicio</a></li>
-                    <li><a href="../controladores/c_juegos.php">Juegos</a></li>
-                    <li><a href="../controladores/c_plataformas.php">Plataformas</a></li>
-                </ul>
-            </nav>
-            <div class="rrss">
-                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                <a href="#"><i class="fa-brands fa-discord"></i></a>
+        echo '<nav class="navbar sticky-top sticky-top navbar-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../index.php">
+                    <img src="../assets/img/logo.png" alt="" id="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link m-1 fs-5" href="../index.php">Inicio</a>
+                        <a class="nav-link m-1 fs-5" href="../controladores/c_juegos.php">Juegos</a>
+                        <a class="nav-link m-1 fs-5" href="../controladores/c_plataformas.php">Plataformas</a>
+                    </div>
+                    <form action="../controladores/c_cerrar_sesion.php" method="post">
+                        <input type="submit" class="btn btn-danger" name="desconectar" value="Salir">
+                    </form>
+                </div>
             </div>
-            <div class="login">
-                <form action="../controladores/c_cerrar_sesion.php" method="post">
-                    <input type="submit" name="desconectar" id="btn-login" value="Salir">
-                </form>
-            </div>
-        </header>';
+        </nav>';
+    }
+
+    //FUNCION PARA FOOTER
+    function footer(){
+        echo '';
     }
 ?>
