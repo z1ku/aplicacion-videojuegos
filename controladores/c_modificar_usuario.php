@@ -17,14 +17,14 @@
             $esAdmin=comprobar_admin($nick,$pass);
             
             if($esAdmin){
-                headerAdmin();
+                $header=headerAdmin();
                 $tipo_usu="admin";
             }else{
-                headerUsu();
+                $header=headerUsu();
                 $tipo_usu="usuario";
             }
         }else{
-            headerGuest();
+            $header=headerGuest();
             $tipo_usu="invitado";
         }
 

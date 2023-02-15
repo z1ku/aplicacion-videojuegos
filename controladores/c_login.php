@@ -4,7 +4,7 @@
         require_once("../modelos/m_usuarios.php");
         require_once("../bd/bd.php");
         
-        headerGuest();
+        $header=headerGuest();
 
         $controlador=true;
 

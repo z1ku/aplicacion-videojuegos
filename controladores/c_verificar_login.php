@@ -19,7 +19,7 @@
             $ok=false;
         }
 
-        headerGuest();
+        $header=headerGuest();
 
         $controlador=true;
 
