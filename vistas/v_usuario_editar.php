@@ -24,8 +24,8 @@
         echo $header;
     ?>
     <main>
-        <section class="seccionUsuarios">
-            <h1>Editar usuario</h1>
+        <section class="seccionUsuarios w-50 mx-auto my-5 min-vh-100">
+            <h1 class="text-center">Editar usuario</h1>
             <?php
                 if(isset($ok)){
                     echo $mensaje;
@@ -37,32 +37,40 @@
                 echo '<form action="../controladores/c_modificar_usuario.php" method="post">
                     <input type="hidden" name="id_usuario" value="'.$datos['id'].'">
                     <input type="hidden" name="pass_anterior" value="'.$datos['pass'].'">
-                    <div>
+                    <div class="form-floating mb-3">
+                        <input type="text" name="nombre" maxlength=50 value="'.$datos['nombre'].'" required class="form-control" placeholder="Nombre">
                         <label for="nombre">Nombre:</label>
-                        <input type="text" name="nombre" maxlength=50 value="'.$datos['nombre'].'" required>
                     </div>
-                    <div>
+                    <div class="form-floating mb-3">
+                        <input type="text" name="nick" maxlength=20 value="'.$datos['nick'].'" required class="form-control" placeholder="Nick">
                         <label for="nick">Nick:</label>
-                        <input type="text" name="nick" maxlength=20 value="'.$datos['nick'].'" required>
                     </div>
-                    <div>
+                    <div class="form-floating mb-3">
+                        <input type="password" name="pass" maxlength=20 value="" class="form-control" placeholder="Constraseña">
                         <label for="pass">Constraseña:</label>
-                        <input type="password" name="pass" maxlength=20 value="">
                     </div>
-                    <div>';
+                    <div class="mb-3">';
                         if($datos['activo']==1){
-                            echo '<input type="radio" name="activar" value="1" checked>
-                            <label for="activado">Activado</label>
-                            <input type="radio" name="activar" value="0">
-                            <label for="desactivado">Desactivado</label>';
+                            echo '<div class="form-check">
+                                <input type="radio" name="activar" value="1" checked class="form-check-input">
+                                <label for="activado" class="form-check-label">Activado</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" name="activar" value="0" class="form-check-input">
+                                <label for="desactivado" class="form-check-label">Desactivado</label>
+                            </div>';
                         }else{
-                            echo '<input type="radio" name="activar" value="1">
-                            <label for="activado">Activado</label>
-                            <input type="radio" name="activar" value="0" checked>
-                            <label for="desactivado">Desactivado</label>';
+                            echo '<div class="form-check">
+                                <input type="radio" name="activar" value="1" class="form-check-input">
+                                <label for="activado" class="form-check-label">Activado</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" name="activar" value="0" checked class="form-check-input">
+                                <label for="desactivado" class="form-check-label">Desactivado</label>
+                            </div>';
                         }
                     echo '</div>
-                    <input type="submit" name="enviar" value="Guardar">
+                    <input type="submit" name="enviar" value="Guardar" class="btn btn-success">
                 </form>';
             ?>
         </section>

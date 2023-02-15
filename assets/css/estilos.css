@@ -26,6 +26,34 @@ div.card{
     background-color: #070707 !important;
 }
 
+.contenedor_buscar_nuevo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+/* ESTILOS PARA SECCION JUEGOS */
+.seccionJuegos td img{
+    object-fit: cover;
+    width: 100%;
+    display: block;
+    height: 400px;
+}
+
+.seccionJuegos td{
+    width: 20%;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* ESTILOS PARA SECCION PLATAFORMAS */
+.seccionPlataformas img{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
 /* ESTILOS PARA EL FOOTER */
 footer{
     display: flex;

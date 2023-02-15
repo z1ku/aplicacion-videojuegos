@@ -24,8 +24,8 @@
         echo $header;
     ?>
     <main>
-        <section class="seccionPlataformas">
-            <h1>Editar plataforma</h1>
+        <section class="seccionPlataformas w-50 mx-auto my-5 min-vh-100">
+            <h1 class="text-center">Editar plataforma</h1>
             <?php
                 if(isset($ok)){
                     echo $mensaje;
@@ -37,15 +37,15 @@
                 echo '<form action="../controladores/c_modificar_plataforma.php" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="id_plataforma" value="'.$datos['id'].'">
                     <input type="hidden" name="foto_anterior" value="'.$datos['logotipo'].'">
-                    <div>
-                        <label for="nombre">Nombre:</label>
-                        <input type="text" name="nombre" maxlength=50 value="'.$datos['nombre'].'" required>
+                    <div class="form-floating mb-3">
+                        <input type="text" name="nombre" maxlength=50 value="'.$datos['nombre'].'" required class="form-control" placeholder="Nombre">
+                        <label for="nombre">Nombre</label>
                     </div>
-                    <div>
-                        <label for="foto">Logotipo:</label>
-                        <input type="file" name="foto">
+                    <div class="mb-3">
+                        <label for="foto" class="form-label">Logotipo</label>
+                        <input type="file" name="foto" class="form-control">
                     </div>
-                    <input type="submit" name="enviar" value="Guardar">
+                    <input type="submit" name="enviar" value="Guardar" class="btn btn-success">
                 </form>';
             ?>
         </section>

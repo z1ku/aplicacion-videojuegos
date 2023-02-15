@@ -24,29 +24,29 @@
         echo $header;
     ?>
     <main>
-        <section class="seccionPlataformas">
+        <section class="seccionPlataformas w-75 mx-auto my-5 text-center min-vh-100">
             <h1>Plataformas</h1>
             <?php
                 if($tipo_usu=="admin"){
                     echo '<div class="contenedor_buscar_nuevo">
                         <form action="../controladores/c_buscar_plataforma.php" method="post">
                             <input type="text" name="cadena">
-                            <input type="submit" name="buscar_plataforma" value="Buscar">
+                            <input type="submit" name="buscar_plataforma" value="Buscar" class="btn btn-primary">
                         </form>
                         <form action="../controladores/c_plataforma_nueva.php" method="post">
-                            <input type="submit" name="plataforma_nueva" value="Nueva plataforma">
+                            <input type="submit" name="plataforma_nueva" value="Nueva plataforma" class="btn btn-success">
                         </form>
                     </div>';
                 }
 
-                echo "<div>";
+                echo '<div class"d-flex flex-row">';
                 for($i=0;$i<count($plataformas);$i++){
-                    echo "<div>";
+                    echo '<div class="my-3">';
                     echo '<a href="../controladores/c_ver_plataforma.php?plata_id='.$plataformas[$i]['id'].'"><img src="../assets/img/plataformas/'.$plataformas[$i]['logotipo'].'"></a>';
                     if($tipo_usu=="admin"){
                         echo '<form action="c_plataforma_editar.php" method="post">
                             <input type="hidden" name="id_plata" value="'.$plataformas[$i]['id'].'">
-                            <input type="submit" name="enviar" id="btn-login" value="Editar">
+                            <input type="submit" name="enviar" id="btn-login" value="Editar" class="btn btn-success">
                         </form>';
                     }
                     echo "</div>";

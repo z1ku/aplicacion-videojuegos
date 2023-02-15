@@ -24,7 +24,7 @@
         echo $header;
     ?>
     <main>
-        <section class="seccionComentarios">
+        <section class="seccionComentarios w-75 mx-auto my-5 text-center min-vh-100">
             <h1>Comentarios</h1>
             <?php
                 if(isset($ok)){
@@ -35,14 +35,17 @@
                 }
 
                 if($comentarios!=null){
-                    echo "<table border>
+                    echo '<table class="table table-dark table-hover align-middle table-borderless">
+                    <thead>
                     <tr>
                         <td>Usuario</td>
                         <td>Juego</td>
                         <td>Fecha</td>
                         <td>Texto</td>
                         <td>Borrar</td>
-                    </tr>";
+                    </tr>
+                    </thead>
+                    <tbody>';
                     for($i=0;$i<count($comentarios);$i++){
                         echo "<tr>
                         <td>".$comentarios[$i]['usuario']."</td>
@@ -55,11 +58,12 @@
                                 <input type="hidden" name="id_jue" value="'.$comentarios[$i]['id_juego'].'">
                                 <input type="hidden" name="fecha" value="'.$comentarios[$i]['fecha'].'">
                                 <input type="hidden" name="texto" value="'.$comentarios[$i]['texto'].'">
-                                <input type="submit" name="enviar" id="btn-login" value="Borrar">
+                                <input type="submit" name="enviar" id="btn-login" value="Borrar" class="btn btn-danger">
                             </form>
                         </td>';
                         echo "</tr>";
                     }
+                    echo "</tbody>";
                     echo "</table>";
                 }else{
                     echo "<p>Aún no hay comentarios</p>";

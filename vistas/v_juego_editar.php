@@ -24,8 +24,8 @@
         echo $header;
     ?>
     <main>
-        <section class="seccionJuegos">
-            <h1>Editar juego</h1>
+        <section class="seccionJuegos w-50 mx-auto my-5 min-vh-100">
+            <h1 class="text-center">Editar juego</h1>
             <?php
                 if(isset($ok)){
                     echo $mensaje;
@@ -37,17 +37,16 @@
                 echo '<form action="../controladores/c_modificar_juego.php" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="id_juego" value="'.$datos['id'].'">
                     <input type="hidden" name="foto_anterior" value="'.$datos['caratula'].'">
-                    <div>
-                        <label for="nombre">Nombre:</label>
-                        <input type="text" name="nombre" maxlength=50 value="'.$datos['nombre'].'" required>
+                    <div class="form-floating mb-3">
+                        <input type="text" name="nombre" maxlength=50 value="'.$datos['nombre'].'" required class="form-control" placeholder="Nombre">
+                        <label for="nombre">Nombre</label>
                     </div>
-                    <div>
-                        <label for="desc">Descripción:</label>
-                        <input type="text" name="desc" maxlength=50 value="'.$datos['descripcion'].'" required>
+                    <div class="form-floating mb-3">
+                        <input type="text" name="desc" maxlength=50 value="'.$datos['descripcion'].'" required class="form-control" placeholder="Descripción">
+                        <label for="desc">Descripción</label>
                     </div>
-                    <div>
-                        <label for="plata">Plataforma:</label>
-                        <select name="plata" required>';
+                    <div class="form-floating mb-3">
+                        <select name="plata" required class="form-select">';
                         for($i=0;$i<count($plataformas);$i++){
                             if($plataformas[$i]['id']===$datos['plataforma']){
                                 echo '<option selected value="'.$plataformas[$i]['id'].'">'.$plataformas[$i]['nombre'].'</option>';
@@ -56,29 +55,38 @@
                             }
                         }
                     echo '</select>
+                        <label for="plata">Plataforma</label>
                     </div>
-                    <div>
+                    <div class="form-floating mb-3">
+                        <input type="date" name="fecha_lanz" value="'.$datos['fecha_lanzamiento'].'" required class="form-control" placeholder="Fecha lanzamiento">
                         <label for="fecha_lanz">Fecha de lanzamiento:</label>
-                        <input type="date" name="fecha_lanz" value="'.$datos['fecha_lanzamiento'].'" required>
                     </div>
-                    <div>
-                        <label for="foto">Caratula:</label>
-                        <input type="file" name="foto">
+                    <div class="mb-3">
+                        <label for="foto">Caratula</label>
+                        <input type="file" name="foto" class="form-control">
                     </div>
-                    <div>';
+                    <div class="mb-3">';
                         if($datos['activo']==1){
-                            echo '<input type="radio" name="activar" value="1" checked>
-                            <label for="activado">Activado</label>
-                            <input type="radio" name="activar" value="0">
-                            <label for="desactivado">Desactivado</label>';
+                            echo '<div class="form-check">
+                                <input type="radio" name="activar" value="1" checked class="form-check-input">
+                                <label for="activado" class="form-check-label">Activado</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" name="activar" value="0" class="form-check-input">
+                                <label for="desactivado" class="form-check-label">Desactivado</label>
+                            </div>';
                         }else{
-                            echo '<input type="radio" name="activar" value="1">
-                            <label for="activado">Activado</label>
-                            <input type="radio" name="activar" value="0" checked>
-                            <label for="desactivado">Desactivado</label>';
+                            echo '<div class="form-check">
+                                <input type="radio" name="activar" value="1" class="form-check-input">
+                                <label for="activado" class="form-check-label">Activado</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" name="activar" value="0" checked class="form-check-input">
+                                <label for="desactivado" class="form-check-label">Desactivado</label>
+                            </div>';
                         }
                     echo '</div>
-                    <input type="submit" name="enviar" value="Guardar">
+                    <input type="submit" name="enviar" value="Guardar" class="btn btn-success">
                 </form>';
             ?>
         </section>

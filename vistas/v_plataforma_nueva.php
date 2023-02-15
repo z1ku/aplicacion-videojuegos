@@ -24,8 +24,8 @@
         echo $header;
     ?>
     <main>
-        <section class="seccionJuegos">
-            <h1>Insertar nueva plataforma</h1>
+        <section class="seccionPlataformas w-50 mx-auto my-5 min-vh-100">
+            <h1 class="text-center">Insertar nueva plataforma</h1>
             <?php
                 if(isset($ok)){
                     echo $mensaje;
@@ -35,16 +35,16 @@
                 }
             ?>
             <form action="../controladores/c_insertar_plataforma.php" method="post" enctype="multipart/form-data">
-                <div>
-                    <label for="nombre">Nombre:</label>
+                <div class="form-floating mb-3">
                     <!-- AÑADIR EL REQUIRED -->
-                    <input type="text" name="nombre" maxlength=50 >
+                    <input type="text" name="nombre" maxlength=50 class="form-control" placeholder="Nombre">
+                    <label for="nombre">Nombre</label>
                 </div>
-                <div>
-                    <label for="foto">Logotipo:</label>
-                    <input type="file" name="foto" accept="image/png" required>
+                <div class="mb-3">
+                    <label for="foto" class="form-label">Logotipo</label>
+                    <input type="file" name="foto" accept="image/png" required class="form-control">
                 </div>
-                <input type="submit" name="insertar_plataforma" value="Guardar">
+                <input type="submit" name="insertar_plataforma" value="Guardar" class="btn btn-success">
             </form>
         </section>
     </main>

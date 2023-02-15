@@ -24,33 +24,37 @@
         echo $header;
     ?>
     <main>
-        <section class="seccionJuegos">
+        <section class="seccionJuegos w-75 mx-auto my-5 text-center min-vh-100">
             <h1>Juegos</h1>
             <?php
                 if($tipo_usu=="admin"){
                     echo '<div class="contenedor_buscar_nuevo">
                         <form action="../controladores/c_buscar_juego.php" method="post">
                             <input type="text" name="cadena">
-                            <input type="submit" name="buscar_juego" value="Buscar">
+                            <input type="submit" name="buscar_juego" value="Buscar" class="btn btn-primary">
                         </form>
                         <form action="../controladores/c_juego_nuevo.php" method="post">
-                            <input type="submit" name="juego_nuevo" value="Nuevo juego">
+                            <input type="submit" name="juego_nuevo" value="Nuevo juego" class="btn btn-success">
                         </form>
                     </div>';
                 }
 
                 if($juegos!=null){
                     echo "<h2>Juegos encontrados</h2>";
-                    echo "<table border>
+                    echo '<div class="table-responsive">';
+                    echo '<table class="table table-dark table-hover align-middle table-borderless">
+                    <thead>
                     <tr>
                         <td>Plataforma</td>
                         <td>Caratula</td>
                         <td>Nombre</td>
-                        <td>Ver</td>";
+                        <td>Ver</td>';
                         if($tipo_usu=="admin"){
                             echo "<td>Editar</td>";
                         }
                     echo "</tr>";
+                    echo "</thead>";
+                    echo "<tbody>";
                     for($i=0;$i<count($juegos);$i++){
                         $plataforma=$plata->plataforma_por_id($juegos[$i]['plataforma']);
                         echo "<tr>
@@ -62,20 +66,22 @@
                         echo '<td>
                             <form action="c_juego_ver.php" method="post">
                                 <input type="hidden" name="id_juego" value="'.$juegos[$i]['id'].'">
-                                <input type="submit" name="enviar" id="btn-login" value="Ver más">
+                                <input type="submit" name="enviar" id="btn-login" value="Ver más" class="btn btn-primary">
                             </form>
                         </td>';
                         if($tipo_usu=="admin"){
                             echo '<td>
                                 <form action="c_juego_editar.php" method="post">
                                     <input type="hidden" name="id_juego" value="'.$juegos[$i]['id'].'">
-                                    <input type="submit" name="enviar" id="btn-login" value="Editar">
+                                    <input type="submit" name="enviar" id="btn-login" value="Editar" class="btn btn-success">
                                 </form>
                             </td>';
                         }
                         echo "</tr>";
                     }
+                    echo "</tbody>";
                     echo "</table>";
+                    echo "</div>";
                 }else{
                     echo "<p>No se han encontrado coincidencias</p>";
                 }

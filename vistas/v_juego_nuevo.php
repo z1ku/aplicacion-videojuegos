@@ -24,8 +24,8 @@
         echo $header;
     ?>
     <main>
-        <section class="seccionJuegos">
-            <h1>Insertar nuevo juego</h1>
+        <section class="seccionJuegos w-50 mx-auto my-5 min-vh-100">
+            <h1 class="text-center">Insertar nuevo juego</h1>
             <?php
                 if(isset($ok)){
                     echo $mensaje;
@@ -35,40 +35,44 @@
                 }
             ?>
             <form action="../controladores/c_insertar_juego.php" method="post" enctype="multipart/form-data">
-                <div>
-                    <label for="nombre">Nombre:</label>
-                    <!-- AÑADIR EL REQUIRED -->
-                    <input type="text" name="nombre" maxlength=50 >
+                <div class="form-floating mb-3">
+                    <!-- AÑADIR REQUIRED -->
+                    <input type="text" name="nombre" maxlength=50 class="form-control" placeholder="Nombre">
+                    <label for="nombre">Nombre</label>
                 </div>
-                <div>
-                    <label for="desc">Descripción:</label>
-                    <input type="text" name="desc" maxlength=50 required>
+                <div class="form-floating mb-3">
+                    <input type="text" name="desc" maxlength=50 required class="form-control" placeholder="Descripción">
+                    <label for="desc">Descripción</label>
                 </div>
-                <div>
-                    <label for="plata">Plataforma:</label>
-                    <select name="plata" required>
+                <div class="form-floating mb-3">
+                    <select name="plata" required class="form-select">
                         <?php
                             for($i=0;$i<count($plataformas);$i++){
                                 echo '<option value="'.$plataformas[$i]['id'].'">'.$plataformas[$i]['nombre'].'</option>';
                             }
                         ?>
                     </select>
+                    <label for="plata">Plataforma</label>
                 </div>
-                <div>
-                    <label for="fecha_lanz">Fecha de lanzamiento:</label>
-                    <input type="date" name="fecha_lanz" required>
+                <div class="form-floating mb-3">
+                    <input type="date" name="fecha_lanz" required class="form-control" placeholder="Fecha lanzamiento">
+                    <label for="fecha_lanz">Fecha de lanzamiento</label>
                 </div>
-                <div>
-                    <label for="foto">Caratula:</label>
-                    <input type="file" name="foto" required>
+                <div class="mb-3">
+                    <label for="foto" class="form-label">Caratula</label>
+                    <input type="file" name="foto" required class="form-control">
                 </div>
-                <div>
-                    <input type="radio" name="activar" value="1" checked>
-                    <label for="activado">Activado</label>
-                    <input type="radio" name="activar" value="0">
-                    <label for="desactivado">Desactivado</label>
+                <div class="mb-3">
+                    <div class="form-check">
+                        <input type="radio" name="activar" value="1" checked class="form-check-input">
+                        <label for="activado" class="form-check-label">Activado</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="activar" value="0" class="form-check-input">
+                        <label for="desactivado" class="form-check-label">Desactivado</label>
+                    </div>
                 </div>
-                <input type="submit" name="insertar_juego" value="Guardar">
+                <input type="submit" name="insertar_juego" value="Guardar" class="btn btn-success">
             </form>
         </section>
     </main>

@@ -24,26 +24,29 @@
         echo $header;
     ?>
     <main>
-        <section class="seccionUsuarios">
+        <section class="seccionUsuarios w-75 mx-auto my-5 text-center min-vh-100">
             <h1>Usuarios</h1>
             <?php
                 echo '<div class="contenedor_buscar_nuevo">
                     <form action="../controladores/c_buscar_usuario.php" method="post">
                         <input type="text" name="cadena">
-                        <input type="submit" name="buscar_usuario" value="Buscar">
+                        <input type="submit" name="buscar_usuario" value="Buscar" class="btn btn-primary">
                     </form>
                     <form action="../controladores/c_usuario_nuevo.php" method="post">
-                        <input type="submit" name="usuario_nuevo" value="Nuevo usuario">
+                        <input type="submit" name="usuario_nuevo" value="Nuevo usuario" class="btn btn-success">
                     </form>
                 </div>';
 
-                echo "<table border>
+                echo '<table class="table table-dark table-hover align-middle table-borderless">
+                <thead>
                 <tr>
                     <td>Nombre</td>
                     <td>Nick</td>
                     <td>Activo</td>
                     <td>Editar</td>
-                </tr>";
+                </tr>
+                </thead>
+                <tbody>';
                 for($i=0;$i<count($usuarios);$i++){
                     if($usuarios[$i]['id']!=0){
                         echo "<tr>
@@ -57,12 +60,13 @@
                         echo '<td>
                             <form action="c_usuario_editar.php" method="post">
                                 <input type="hidden" name="id_usu" value="'.$usuarios[$i]['id'].'">
-                                <input type="submit" name="enviar" id="btn-login" value="Editar">
+                                <input type="submit" name="enviar" id="btn-login" value="Editar" class="btn btn-success">
                             </form>
                         </td>';
                         echo "</tr>";
                     }
                 }
+                echo "</tbody>";
                 echo "</table>";
             ?>
         </section>

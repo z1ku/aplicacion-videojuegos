@@ -24,8 +24,8 @@
         echo $header;
     ?>
     <main>
-        <section class="seccionUsuarios">
-            <h1>Insertar nuevo usuario</h1>
+        <section class="seccionUsuarios w-50 mx-auto my-5 min-vh-100">
+            <h1 class="text-center">Insertar nuevo usuario</h1>
             <?php
                 if(isset($ok)){
                     echo $mensaje;
@@ -35,20 +35,20 @@
                 }
             ?>
             <form action="../controladores/c_insertar_usuario.php" method="post">
-                <div>
-                    <label for="nombre">Nombre:</label>
+                <div class="form-floating mb-3">
                     <!-- AÑADIR EL REQUIRED -->
-                    <input type="text" name="nombre" maxlength=50 >
+                    <input type="text" name="nombre" maxlength=50 class="form-control" placeholder="Nombre">
+                    <label for="nombre">Nombre</label>
                 </div>
-                <div>
-                    <label for="nick">Nick:</label>
-                    <input type="text" name="nick" maxlength=20 required>
+                <div class="form-floating mb-3">
+                    <input type="text" name="nick" maxlength=20 required class="form-control" placeholder="Nick">
+                    <label for="nick">Nick</label>
                 </div>
-                <div>
-                    <label for="pass">Constraseña:</label>
-                    <input type="password" name="pass" maxlength=20 required>
+                <div class="form-floating mb-3">
+                    <input type="password" name="pass" maxlength=20 required class="form-control" placeholder="Contraseña">
+                    <label for="pass">Constraseña</label>
                 </div>
-                <input type="submit" name="insertar_usuario" value="Guardar">
+                <input type="submit" name="insertar_usuario" value="Guardar" class="btn btn-success">
             </form>
         </section>
     </main>
