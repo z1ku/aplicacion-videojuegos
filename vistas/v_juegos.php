@@ -40,7 +40,11 @@
                 }
 
                 for($i=0;$i<count($plataformas);$i++){
-                    $juegos=$jue->juegos_por_plataforma($plataformas[$i]['id']);
+                    if($tipo_usu=="admin"){
+                        $juegos=$jue->juegos_por_plataforma_admin($plataformas[$i]['id']);
+                    }else{
+                        $juegos=$jue->juegos_por_plataforma($plataformas[$i]['id']);
+                    }
                     if($juegos!=null){
                         echo "<h2>".$plataformas[$i]['nombre']."</h2>";
                         echo '<div class="table-responsive">';

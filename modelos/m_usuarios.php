@@ -26,7 +26,7 @@
         public function comprobar_login($nick,$pass){
             $con=conectar::conexion();
 
-            $preparada=$con->prepare("select id from usuarios where nick=? and pass=?");
+            $preparada=$con->prepare("select id from usuarios where nick=? and pass=? and activo=1");
             $preparada->bind_result($id);
             $preparada->bind_param("ss",$nick,$pass);
             $preparada->execute();

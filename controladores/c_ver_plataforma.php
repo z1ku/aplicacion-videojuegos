@@ -35,6 +35,7 @@
 
         if($plataforma!=null){
             $jue=new juego();
+            
             $juegos=$jue->juegos_por_plataforma($_GET['plata_id']);
 
             $controlador=true;

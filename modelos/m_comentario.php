@@ -106,7 +106,7 @@
         public function ultimos_comentarios(){
             $con=conectar::conexion();
 
-            $buscar=$con->query("select usuarios.nombre,juegos.caratula,texto,fecha from comentario,juegos,usuarios where usuario=usuarios.id and juego=juegos.id order by fecha desc limit 0, 4");
+            $buscar=$con->query("select usuarios.nombre,juegos.caratula,texto,fecha from comentario,juegos,usuarios where usuario=usuarios.id and juego=juegos.id and juegos.activo=1 order by fecha desc limit 0, 4");
 
             if($buscar->num_rows>0){
                 $i=0;
