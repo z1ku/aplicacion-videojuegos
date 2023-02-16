@@ -40,6 +40,7 @@
                             <a class="nav-link m-1 fs-5" href="index.php">Inicio</a>
                             <a class="nav-link m-1 fs-5" href="controladores/c_juegos.php">Juegos</a>
                             <a class="nav-link m-1 fs-5" href="controladores/c_plataformas.php">Plataformas</a>
+                            <a class="nav-link m-1 fs-5" href="controladores/c_nosotros.php">Nosotros</a>
                         </div>
                         <form action="controladores/c_login.php" method="post">
                             <input type="submit" class="btn btn-primary" name="enviar" value="Login">
@@ -68,6 +69,7 @@
                             <a class="nav-link m-1 fs-5" href="controladores/c_plataformas.php">Plataformas</a>
                             <a class="nav-link m-1 fs-5" href="controladores/c_usuarios.php">Usuarios</a>
                             <a class="nav-link m-1 fs-5" href="controladores/c_comentarios.php">Comentarios</a>
+                            <a class="nav-link m-1 fs-5" href="controladores/c_nosotros.php">Nosotros</a>
                         </div>
                         <form action="controladores/c_cerrar_sesion.php" method="post">
                             <input type="submit" class="btn btn-danger" name="desconectar" value="Salir">
@@ -94,6 +96,7 @@
                             <a class="nav-link m-1 fs-5" href="index.php">Inicio</a>
                             <a class="nav-link m-1 fs-5" href="controladores/c_juegos.php">Juegos</a>
                             <a class="nav-link m-1 fs-5" href="controladores/c_plataformas.php">Plataformas</a>
+                            <a class="nav-link m-1 fs-5" href="controladores/c_nosotros.php">Nosotros</a>
                         </div>
                         <form action="controladores/c_cerrar_sesion.php" method="post">
                             <input type="submit" class="btn btn-danger" name="desconectar" value="Salir">
@@ -120,6 +123,7 @@
                             <a class="nav-link m-1 fs-5" href="../index.php">Inicio</a>
                             <a class="nav-link m-1 fs-5" href="../controladores/c_juegos.php">Juegos</a>
                             <a class="nav-link m-1 fs-5" href="../controladores/c_plataformas.php">Plataformas</a>
+                            <a class="nav-link m-1 fs-5" href="../controladores/c_nosotros.php">Nosotros</a>
                         </div>
                         <form action="../controladores/c_login.php" method="post">
                             <input type="submit" class="btn btn-primary" name="enviar" value="Login">
@@ -148,6 +152,7 @@
                             <a class="nav-link m-1 fs-5" href="../controladores/c_plataformas.php">Plataformas</a>
                             <a class="nav-link m-1 fs-5" href="../controladores/c_usuarios.php">Usuarios</a>
                             <a class="nav-link m-1 fs-5" href="../controladores/c_comentarios.php">Comentarios</a>
+                            <a class="nav-link m-1 fs-5" href="../controladores/c_nosotros.php">Nosotros</a>
                         </div>
                         <form action="../controladores/c_cerrar_sesion.php" method="post">
                             <input type="submit" class="btn btn-danger" name="desconectar" value="Salir">
@@ -174,6 +179,7 @@
                             <a class="nav-link m-1 fs-5" href="../index.php">Inicio</a>
                             <a class="nav-link m-1 fs-5" href="../controladores/c_juegos.php">Juegos</a>
                             <a class="nav-link m-1 fs-5" href="../controladores/c_plataformas.php">Plataformas</a>
+                            <a class="nav-link m-1 fs-5" href="../controladores/c_nosotros.php">Nosotros</a>
                         </div>
                         <form action="../controladores/c_cerrar_sesion.php" method="post">
                             <input type="submit" class="btn btn-danger" name="desconectar" value="Salir">
