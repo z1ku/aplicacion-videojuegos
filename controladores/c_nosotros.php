@@ -1,5 +1,6 @@
 <?php
     require_once("../funciones/funciones.php");
+    require_once("../bd/bd.php");
 
     session_start();
 
