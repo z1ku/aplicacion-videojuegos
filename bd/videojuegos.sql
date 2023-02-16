@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-02-2023 a las 11:06:10
+-- Tiempo de generación: 16-02-2023 a las 12:30:24
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -112,7 +112,7 @@ CREATE TABLE `usuarios` (
   `nombre` varchar(50) COLLATE latin1_spanish_ci DEFAULT NULL,
   `nick` varchar(20) COLLATE latin1_spanish_ci NOT NULL,
   `pass` varchar(20) COLLATE latin1_spanish_ci NOT NULL,
-  `activo` tinyint(1) DEFAULT NULL
+  `activo` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
@@ -120,9 +120,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `nick`, `pass`, `activo`) VALUES
-(0, NULL, 'admin', 'admin', NULL),
+(0, NULL, 'admin', 'admin', 1),
 (2, 'Richard', 'richar1', 'richar1', 1),
-(3, 'Jesus', 'jesus1', 'jesus1', 1),
+(3, 'Jesus', 'jesus1', 'jesus1', 0),
 (4, 'Josemanue', 'deeky1', 'deeky1', 1);
 
 --
