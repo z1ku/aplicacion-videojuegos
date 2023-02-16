@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-02-2023 a las 20:48:05
+-- Tiempo de generación: 16-02-2023 a las 11:06:10
 -- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 8.1.6
+-- Versión de PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,7 +40,6 @@ CREATE TABLE `comentario` (
 
 INSERT INTO `comentario` (`usuario`, `juego`, `fecha`, `texto`) VALUES
 (2, 1, '2023-02-13', 'Buen juego'),
-(2, 6, '2023-02-13', 'Es el juego de mi infancia'),
 (2, 13, '2023-02-13', 'Buen juego parsero'),
 (3, 3, '2023-02-13', 'Buen juego para acabar con tu vida social');
 
@@ -70,11 +69,11 @@ INSERT INTO `juegos` (`id`, `nombre`, `descripcion`, `plataforma`, `caratula`, `
 (3, 'Black Desert Online', 'MMORPG', 1, '3.jpg', '2017-05-16', 1),
 (4, 'Devil May Cry', 'Hack and Slash', 1, '4.jpg', '2001-03-16', 1),
 (5, 'The Last of Us', 'Aventura, Acción', 3, '5.webp', '2015-02-12', 1),
-(6, 'Ratchet and Clank', 'Plataformas, Aventura', 3, '6.webp', '2005-02-12', 1),
+(6, 'Elden Ring', 'Soul-like, Hack and Slash, Fantasia', 3, '6.webp', '2022-11-10', 1),
 (7, 'Need for Speed', 'Coches, Carreras', 3, '7.jpg', '2015-07-04', 1),
 (8, 'Resident Evil 2 Remake', 'Zombies, Terror', 3, '8.jpg', '2019-01-25', 1),
 (9, 'Halo: Reach', 'Shooter, Futurista', 2, '9.jpg', '2014-10-10', 1),
-(10, 'STAR WARS Jedi: Fallen Order', 'Futurista, Aventura, Espacio', 2, '10.jpg', '2018-04-05', 1),
+(10, 'STAR WARS', 'Futurista, Aventura, Espacio', 2, '10.jpg', '2018-04-05', 1),
 (11, 'Biomutant', 'Aventura, Accion, Mundo abierto', 2, '11.jpg', '2018-07-17', 1),
 (12, 'Assasin\'s Creed Unity', 'Acción, Aventura, Histórico', 2, '12.jpg', '2009-02-07', 1),
 (13, 'Spellforce', 'Estrategia, 4x', 1, '13.jpg', '2023-02-06', 1);
