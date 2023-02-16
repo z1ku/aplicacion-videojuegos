@@ -24,8 +24,8 @@
         echo $header;
     ?>
     <main>
-        <section>
-            <h1>Acceder</h1>
+        <section class="seccionLogin w-50 mx-auto my-5 min-vh-100">
+            <h1 class="text-center">Acceder</h1>
             <?php
                 if(isset($ok)){
                     echo $mensaje;
@@ -35,18 +35,21 @@
                 }
             ?>
             <form action="../controladores/c_verificar_login.php" method="post">
-                <div>
-                    <label for="nick">Nick:</label>
-                    <input type="text" name="nick" value="" required>
+                <div class="form-floating mb-3">
+                    <input type="text" name="nick" value="" required class="form-control" placeholder="Nick">
+                    <label for="nick">Nick</label>
                 </div>
-                <div>
-                    <label for="pass">Constraseña:</label>
-                    <input type="password" name="pass"required>
+                <div class="form-floating mb-3">
+                    <input type="password" name="pass"required class="form-control" placeholder="Contraseña">
+                    <label for="pass">Constraseña</label>
                 </div>
-                <label for="recordar">
-                    <input type="checkbox" name="recordar">Mantener sesión iniciada
-                </label>
-                <input type="submit" name="logearse" value="Enviar">
+                <div class="mb-3">
+                    <div class="form-check">
+                        <input type="checkbox" name="recordar" class="form-check-input">
+                        <label for="recordar" class="form-check-label">Mantener sesión iniciada</label>
+                    </div>
+                </div>
+                <input type="submit" name="logearse" value="Enviar" class="btn btn-success">
             </form>
         </section>
     </main>
