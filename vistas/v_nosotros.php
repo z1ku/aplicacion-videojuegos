@@ -26,20 +26,20 @@
     <main>
         <section class="seccionNosotros w-75 mx-auto my-5 min-vh-100">
             <div class="container-fluid text-center mb-5">
-                <h3>¿Quiénes somos?</h3>
+                <h2>¿Quiénes somos?</h2>
                 <img src="../assets/img/logo.png" class="object-fit-cover mb-3" style="display:inline" alt="logo" width="350" height="350">
                 <h3>Gaming Hub</h3>
             </div>
 
             <div class="container-fluid text-center mb-5">
-                <h3 class="mb-3">¿Qué somos?</h3>
+                <h2 class="mb-3">¿Qué somos?</h2>
                 <p>
                     Somos un club de videojuegos y cyber café.
                 </p>
             </div>
 
             <div class="container-fluid text-center mb-5">    
-                <h3>Sobre nosotros</h3><br>
+                <h2>Sobre nosotros</h2><br>
                 <p>
                     En Gaming Hub nos proponemos llegar a nuestros consumidores ofreciéndoles una experiencia única que no puedan encontrar en ningún otro lugar.
                 </p>
