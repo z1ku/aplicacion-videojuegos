@@ -46,7 +46,7 @@
                 <div class="mb-3">
                     <div class="form-check">
                         <input type="checkbox" name="recordar" class="form-check-input">
-                        <label for="recordar" class="form-check-label">Mantener sesión iniciada</label>
+                        <label for="recordar" class="form-check-label">Recuérdame</label>
                     </div>
                 </div>
                 <input type="submit" name="logearse" value="Enviar" class="btn btn-success">
