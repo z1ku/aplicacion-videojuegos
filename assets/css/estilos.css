@@ -54,6 +54,22 @@ div.card{
     object-fit: cover;
 }
 
+/* ESTILOS PARA CAJA COMENTARIOS */
+.comentario{
+    border: 1px solid grey;
+    background-color: #070707;
+    padding: 1rem;
+    border-radius: 15px;
+}
+
+.comentario>.datos{
+    border-bottom: 1px solid grey;
+}
+
+.comentario>.datos>p{
+    margin-right: 2rem;
+}
+
 /* ESTILOS PARA EL FOOTER */
 footer{
     display: flex;

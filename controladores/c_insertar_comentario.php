@@ -31,7 +31,7 @@
             $tipo_usu="invitado";
         }
 
-        if($tipo_usu!="admin"){
+        if($tipo_usu!="usuario"){
             header("Location:../index.php");
         }
 

@@ -40,12 +40,15 @@
 
                     if($comentarios!=null){
                         echo "<div class=\"cajaComentarios\">";
+                        echo "<h2>Comentarios</h2>";
                         for($i=0;$i<count($comentarios);$i++){
                             $fecha=date("d-m-Y",strtotime($comentarios[$i]['fecha']));
-                            echo '<div class="comentario">
-                                <p>'.$comentarios[$i]['nick'].'</p>
-                                <p>'.$fecha.'</p>
-                                <p>'.$comentarios[$i]['texto'].'</p>
+                            echo '<div class="comentario d-flex flex-column mb-3">
+                                <div class="datos d-flex">
+                                    <p>'.$comentarios[$i]['nick'].'</p>
+                                    <p>'.$fecha.'</p>
+                                </div>
+                                <p class="my-auto p-3">'.$comentarios[$i]['texto'].'</p>
                             </div>';
                         }
                         echo "</div>";
