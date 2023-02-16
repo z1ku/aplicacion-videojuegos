@@ -24,16 +24,20 @@
         echo $header;
     ?>
     <main>
-        <section class="seccionPlataformas">
+        <section class="seccionJuegos w-75 mx-auto my-5 text-center min-vh-100">
             <?php
                 echo "<h1>Juegos de ".$plataforma['nombre']."</h1>";
                 if($juegos!=null){
-                    echo "<table border>
+                    echo '<div class="table-responsive">';
+                    echo '<table class="table table-dark table-hover align-middle table-borderless">
+                    <thead>
                     <tr>
                         <td>Caratula</td>
                         <td>Nombre</td>
-                        <td>Fecha lanzamiento</td>";
+                        <td>Fecha lanzamiento</td>';
                     echo "</tr>";
+                    echo "</thead>";
+                    echo "<tbody>";
                     for($i=0;$i<count($juegos);$i++){
                         echo "<tr>
                         <td><img src=\"../assets/img/juegos/".$juegos[$i]['caratula']."\"></td>
@@ -41,7 +45,9 @@
                         <td>".$juegos[$i]['fecha_lanzamiento']."</td>";
                         echo '</tr>';
                     }
+                    echo "</tbody>";
                     echo "</table>";
+                    echo "</div>";
                 }else{
                     echo "<p>No hay juegos de esa plataforma aún</p>";
                 }
