@@ -24,14 +24,16 @@
         echo $header;
     ?>
     <main>
-        <section class="seccionJuegos">
+        <section class="seccionVerJuego w-75 mx-auto my-5 min-vh-100">
             <?php
-                echo "<div class=\"infoJuego\">
+                $fecha=date("d-m-Y",strtotime($juego['fecha_lanzamiento']));
+
+                echo "<div class=\"infoJuego text-center\">
                 <h1>".$juego['nombre']."</h1>
-                <img src=\"../assets/img/juegos/".$juego['caratula']."\">
+                <img class=\"mb-3\" src=\"../assets/img/juegos/".$juego['caratula']."\">
                 <p>".$juego['descripcion']."</p>
                 <p>".$plataforma['nombre']."</p>
-                <p>".$juego['fecha_lanzamiento']."</p>
+                <p>".$fecha."</p>
                 </div>";
 
                 if($tipo_usu=="usuario"){
@@ -39,9 +41,10 @@
                     if($comentarios!=null){
                         echo "<div class=\"cajaComentarios\">";
                         for($i=0;$i<count($comentarios);$i++){
+                            $fecha=date("d-m-Y",strtotime($comentarios[$i]['fecha']));
                             echo '<div class="comentario">
                                 <p>'.$comentarios[$i]['nick'].'</p>
-                                <p>'.$comentarios[$i]['fecha'].'</p>
+                                <p>'.$fecha.'</p>
                                 <p>'.$comentarios[$i]['texto'].'</p>
                             </div>';
                         }
@@ -54,11 +57,11 @@
 
                     echo '<form action="../controladores/c_insertar_comentario.php" method="post">
                     <input type="hidden" name="id_juego" value="'.$id.'">
-                    <div>
-                        <label for="texto">Comentario:</label>
-                        <textarea name="texto" cols="30" rows="10" maxlength="100" required></textarea>
+                    <div class="form-floating mb-3">
+                        <textarea name="texto" maxlength="100" required class="form-control" placeholder="Deja tu comentario"></textarea>
+                        <label for="texto">Comentario</label>
                     </div>
-                    <input type="submit" name="insertar_comentario" value="Enviar">
+                    <input type="submit" name="insertar_comentario" value="Enviar" class="btn btn-success">
                     </form>';
                 }
             ?>

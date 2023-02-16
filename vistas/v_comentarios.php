@@ -47,10 +47,11 @@
                     </thead>
                     <tbody>';
                     for($i=0;$i<count($comentarios);$i++){
+                        $fecha=date("d-m-Y",strtotime($comentarios[$i]['fecha']));
                         echo "<tr>
                         <td>".$comentarios[$i]['usuario']."</td>
                         <td>".$comentarios[$i]['juego']."</td>
-                        <td>".$comentarios[$i]['fecha']."</td>
+                        <td>".$fecha."</td>
                         <td>".$comentarios[$i]['texto']."</td>";
                         echo '<td>
                             <form action="c_comentario_borrar.php" method="post">

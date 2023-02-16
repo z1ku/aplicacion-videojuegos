@@ -88,13 +88,14 @@
                     echo '<div id="ultimosComentarios" class="carousel m-auto" data-bs-ride="carousel" style="width: 20rem;">
                     <div class="carousel-inner">';
                     for($i=0;$i<count($comentarios);$i++){
+                        $fecha=date("d-m-Y",strtotime($comentarios[$i]['fecha']));
                         if($i==0){
                             echo '<div class="carousel-item active">
                                 <img src="assets/img/juegos/'.$comentarios[$i]['caratula'].'" class="d-block w-100" alt="">
                                 <div class="carousel-caption d-none d-md-block bg-black bg-opacity-75">
                                     <h5>'.$comentarios[$i]['nombre'].'</h5>
                                     <p>'.$comentarios[$i]['texto'].'</p>
-                                    <p>'.$comentarios[$i]['fecha'].'</p>
+                                    <p>'.$fecha.'</p>
                                 </div>
                             </div>';
                         }else{
@@ -103,7 +104,7 @@
                                 <div class="carousel-caption d-none d-md-block bg-black bg-opacity-75">
                                     <h5>'.$comentarios[$i]['nombre'].'</h5>
                                     <p>'.$comentarios[$i]['texto'].'</p>
-                                    <p>'.$comentarios[$i]['fecha'].'</p>
+                                    <p>'.$fecha.'</p>
                                 </div>
                             </div>';
                         }

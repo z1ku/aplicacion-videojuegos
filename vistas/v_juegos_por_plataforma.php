@@ -39,10 +39,11 @@
                     echo "</thead>";
                     echo "<tbody>";
                     for($i=0;$i<count($juegos);$i++){
+                        $fecha=date("d-m-Y",strtotime($juegos[$i]['fecha_lanzamiento']));
                         echo "<tr>
                         <td><img src=\"../assets/img/juegos/".$juegos[$i]['caratula']."\"></td>
                         <td>".$juegos[$i]['nombre']."</td>
-                        <td>".$juegos[$i]['fecha_lanzamiento']."</td>";
+                        <td>".$fecha."</td>";
                         echo '</tr>';
                     }
                     echo "</tbody>";
