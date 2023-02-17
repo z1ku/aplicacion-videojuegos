@@ -24,27 +24,98 @@
         echo $header;
     ?>
     <main>
-        <section class="seccionPopulares w-75 mx-auto my-5 min-vh-100">
+        <div class="text-center container">
+            <img src="../assets/img/CS-GO-Wallpaper.jpg" alt="" class="csgowp">
+        </div>
+        <section class="seccionPopulares py-5 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="fw-light">Counter-Strike: Global Offensive</h1>
+                    <p>
+                        Counter-Strike: Global Offensive is one of the oldest FPS games out there. Still, it’s going strong with a solid player count in 2023.
+                    </p>
+                    <p>
+                        The FPS industry is saturated with new titles that get popular quickly but lose relevance after a year or so. However, in a herd of fads, CSGO is one game that has remained popular for over a decade. In 2023, the game has a massive fanbase that has stayed loyal since its official launch in 2012.
+                    </p>
+                    <p>
+                        <a href="#" class="btn btn-primary my-2">Ver más</a>
+                        <a href="#" class="btn btn-danger my-2">Comprar</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="w-75 mx-auto my-5 min-vh-100">
             <h1 class="text-center">Los más populares</h1>
-            <div class="album py-5 bg-light">
+
+            <div class="album py-5">
                 <div class="container">
+
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                         <div class="col">
-                            <div class="card shadow-sm">
-                                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
+                            <div class="card shadow-sm h-100">
+                                <img src="../assets/img/cs.webp" class="card-img-top h-100 object-fit-cover" alt="">
                                 <div class="card-body">
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                    </div>
-                                    <small class="text-muted">9 mins</small>
+                                    <p class="card-text">
+                                        Counter-Strike: Global Offensive es un videojuego de disparos en primera persona desarrollado por Valve Corporation y Hidden Path Entertainment.
+                                    </p>
+                                    <button button type="button" class="btn btn-sm btn-primary">Ver</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card shadow-sm h-100">
+                                <img src="../assets/img/spellforce.jpg" class="card-img-top h-100 object-fit-cover" alt="">
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        On a journey to great magical might, explore and control the lands of Eo in this ever-changing turn-based strategy role-playing game.
+                                    </p>
+                                    <button button type="button" class="btn btn-sm btn-primary">Ver</button>
+                                </div>
+                            </div>
+                        </div><div class="col">
+                            <div class="card shadow-sm h-100">
+                                <img src="../assets/img/elden.webp" class="card-img-top h-100 object-fit-cover" alt="">
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        Elden Ring es un videojuego de rol de acción desarrollado por FromSoftware y publicado por Bandai Namco Entertainment.
+                                    </p>
+                                    <button button type="button" class="btn btn-sm btn-primary">Ver</button>
+                                </div>
+                            </div>
+                        </div><div class="col">
+                            <div class="card shadow-sm h-100">
+                                <img src="../assets/img/halo.jpg" class="card-img-top h-100 object-fit-cover" alt="">
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        Halo Reach es un videojuego de disparos en primera persona desarrollado por Bungie y publicado por Microsoft Game Studios para la consola Xbox 360 y posteriormente retrocompatible con Xbox One.
+                                    </p>
+                                    <button button type="button" class="btn btn-sm btn-primary">Ver</button>
+                                </div>
+                            </div>
+                        </div><div class="col">
+                            <div class="card shadow-sm h-100">
+                                <img src="../assets/img/last.webp" class="card-img-top h-100 object-fit-cover" alt="">
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        The Last of Us es una franquicia de juegos de terror y supervivencia de acción y aventuras creada por Naughty Dog y Sony Interactive Entertainment.
+                                    </p>
+                                    <button button type="button" class="btn btn-sm btn-primary">Ver</button>
+                                </div>
+                            </div>
+                        </div><div class="col">
+                            <div class="card shadow-sm h-100">
+                                <img src="../assets/img/starwars.jpg" class="card-img-top h-100 object-fit-cover" alt="">
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        Star Wars Jedi: Fallen Order es un videojuego de acción y aventura para un solo jugador desarrollado por Respawn Entertainment y publicado por Electronic Arts
+                                    </p>
+                                    <button button type="button" class="btn btn-sm btn-primary">Ver</button>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
