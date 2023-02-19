@@ -47,7 +47,7 @@
         public function ver_comentarios_por_juego($id){
             $con=conectar::conexion();
 
-            $buscar=$con->query("select usuarios.nick,fecha,texto from comentario,usuarios where usuarios.id=usuario and juego=$id");
+            $buscar=$con->query("select usuarios.nick,fecha,texto from comentario,usuarios where usuarios.id=usuario and juego=$id order by fecha asc");
 
             if($buscar->num_rows>0){
                 $i=0;
