@@ -37,37 +37,42 @@
                     </form>
                 </div>';
 
-                echo '<table class="table table-dark table-hover align-middle table-borderless">
-                <thead>
-                <tr>
-                    <td>Nombre</td>
-                    <td>Nick</td>
-                    <td>Activo</td>
-                    <td>Editar</td>
-                </tr>
-                </thead>
-                <tbody>';
-                for($i=0;$i<count($usuarios);$i++){
-                    if($usuarios[$i]['id']!=0){
-                        echo "<tr>
-                        <td>".$usuarios[$i]['nombre']."</td>
-                        <td>".$usuarios[$i]['nick']."</td>";
-                        if($usuarios[$i]['activo']==1){
-                            echo "<td>Si</td>";
-                        }else{
-                            echo "<td>No</td>";
+                if($usuarios!=null){
+                    echo '<table class="table table-dark table-hover align-middle table-borderless">
+                    <thead>
+                    <tr>
+                        <td>Nombre</td>
+                        <td>Nick</td>
+                        <td>Activo</td>
+                        <td>Editar</td>
+                    </tr>
+                    </thead>
+                    <tbody>';
+                    for($i=0;$i<count($usuarios);$i++){
+                        if($usuarios[$i]['id']!=0){
+                            echo "<tr>
+                            <td>".$usuarios[$i]['nombre']."</td>
+                            <td>".$usuarios[$i]['nick']."</td>";
+                            if($usuarios[$i]['activo']==1){
+                                echo "<td>Si</td>";
+                            }else{
+                                echo "<td>No</td>";
+                            }
+                            echo '<td>
+                                <form action="c_usuario_editar.php" method="post">
+                                    <input type="hidden" name="id_usu" value="'.$usuarios[$i]['id'].'">
+                                    <input type="submit" name="enviar" id="btn-login" value="Editar" class="btn btn-success">
+                                </form>
+                            </td>';
+                            echo "</tr>";
                         }
-                        echo '<td>
-                            <form action="c_usuario_editar.php" method="post">
-                                <input type="hidden" name="id_usu" value="'.$usuarios[$i]['id'].'">
-                                <input type="submit" name="enviar" id="btn-login" value="Editar" class="btn btn-success">
-                            </form>
-                        </td>';
-                        echo "</tr>";
                     }
+                    echo "</tbody>";
+                    echo "</table>";
+                }else{
+                    echo "<p>No se han encontrado coincidencias</p>";
                 }
-                echo "</tbody>";
-                echo "</table>";
+                
             ?>
         </section>
     </main>

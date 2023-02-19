@@ -39,19 +39,23 @@
                     </div>';
                 }
 
-                echo '<div class"d-flex flex-row">';
-                for($i=0;$i<count($plataformas);$i++){
-                    echo '<div class="my-3">';
-                    echo '<a href="../controladores/c_ver_plataforma.php?plata_id='.$plataformas[$i]['id'].'"><img src="../assets/img/plataformas/'.$plataformas[$i]['logotipo'].'"></a>';
-                    if($tipo_usu=="admin"){
-                        echo '<form action="c_plataforma_editar.php" method="post">
-                            <input type="hidden" name="id_plata" value="'.$plataformas[$i]['id'].'">
-                            <input type="submit" name="enviar" id="btn-login" value="Editar" class="btn btn-success">
-                        </form>';
+                if($plataformas!=null){
+                    echo '<div class"d-flex flex-row">';
+                    for($i=0;$i<count($plataformas);$i++){
+                        echo '<div class="my-3">';
+                        echo '<a href="../controladores/c_ver_plataforma.php?plata_id='.$plataformas[$i]['id'].'"><img src="../assets/img/plataformas/'.$plataformas[$i]['logotipo'].'"></a>';
+                        if($tipo_usu=="admin"){
+                            echo '<form action="c_plataforma_editar.php" method="post">
+                                <input type="hidden" name="id_plata" value="'.$plataformas[$i]['id'].'">
+                                <input type="submit" name="enviar" id="btn-login" value="Editar" class="btn btn-success">
+                            </form>';
+                        }
+                        echo "</div>";
                     }
                     echo "</div>";
+                }else{
+                    echo "<p>No se han encontrado coincidencias</p>";
                 }
-                echo "</div>";
             ?>
         </section>
     </main>
