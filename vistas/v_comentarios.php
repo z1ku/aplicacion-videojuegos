@@ -49,7 +49,7 @@
                     for($i=0;$i<count($comentarios);$i++){
                         $fecha=date("d-m-Y",strtotime($comentarios[$i]['fecha']));
                         echo "<tr>
-                        <td>".$comentarios[$i]['usuario']."</td>
+                        <td>".$comentarios[$i]['nick']."</td>
                         <td>".$comentarios[$i]['juego']."</td>
                         <td>".$fecha."</td>
                         <td>".$comentarios[$i]['texto']."</td>";

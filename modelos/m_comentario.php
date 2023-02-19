@@ -23,12 +23,12 @@
         
         public function todos_comentarios(){
             $con=conectar::conexion();
-            $buscar=$con->query("select usuarios.nombre nomusu, juegos.nombre nomjue, comentario.fecha, comentario.texto, comentario.usuario idusu, comentario.juego idjue from comentario,juegos,usuarios where usuario=usuarios.id and juego=juegos.id");
+            $buscar=$con->query("select nick, juegos.nombre nomjue, comentario.fecha, comentario.texto, comentario.usuario idusu, comentario.juego idjue from comentario,juegos,usuarios where usuario=usuarios.id and juego=juegos.id");
 
             if($buscar->num_rows>0){
                 $i=0;
                 while($fila_buscar=$buscar->fetch_array(MYSQLI_ASSOC)){
-                    $datos[$i]['usuario']=$fila_buscar['nomusu'];
+                    $datos[$i]['nick']=$fila_buscar['nick'];
                     $datos[$i]['juego']=$fila_buscar['nomjue'];
                     $datos[$i]['fecha']=$fila_buscar['fecha'];
                     $datos[$i]['texto']=$fila_buscar['texto'];
